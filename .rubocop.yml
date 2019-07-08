@@ -16,4 +16,6 @@ MethodLength:
 BlockLength:
   Max: 70
 
-require: rubocop-rails
+require:
+  - rubocop-rails
+  - rubocop-rspec
