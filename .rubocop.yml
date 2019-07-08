@@ -1,0 +1,19 @@
+AllCops:
+  TargetRubyVersion: 2.6.3
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - 'rakelib/**/*.rake'
+    - 'spec/**/*.rb'
+
+MethodLength:
+  Max: 20
+
+BlockLength:
+  Max: 70
+
+require: rubocop-rails
