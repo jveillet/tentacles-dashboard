@@ -1,5 +1,8 @@
 AllCops:
   TargetRubyVersion: 2.6.3
+  Excludes:
+    - 'db/**'
+  RunRailsCops: true
 
 Metrics/LineLength:
   Max: 120
