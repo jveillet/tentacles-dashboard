@@ -35,9 +35,9 @@ RSpec.describe SessionsController, type: :controller do
       expect(session[:user_id]).to be_nil
     end
 
-    it "should redirect to the home page" do
+    it "should redirect to the sign in page" do
       delete :destroy
-      expect(response).to redirect_to(root_url)
+      expect(response).to redirect_to(signin_path)
     end
   end
 end
