@@ -11,7 +11,10 @@
         <li class="dropdown has-submenu">
           <div class="user">
             <img src="<%= current_user.image %>" alt="<%= current_user.name %>" class="user-avatar">
-            <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name"><%= current_user.name %></a>
+            <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name">
+              <%= current_user.name %>
+              <%= fa_icon "caret-down", class: "space-between" %>
+            </a>
           </div>
           <ul class="menu-card unordered-list">
             <li><a href="#">Settings</a></li>
