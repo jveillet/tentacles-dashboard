@@ -1,3 +1,88 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.unordered-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topbar {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: center;
+  background-image: linear-gradient(to right,#5d3c7b 30%,#aa70b5,#875390);
+  color: #ffffff;
+  overflow: hidden;
+  width: 100%;
+  line-height: 1.8;
+}
+
+.topbar-logo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: center;
+}
+
+.topbar-navigation {
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+.topbar-logo-name,
+.topbar-logo-name a:link,
+.topbar-logo-name a:hover,
+.topbar-logo-name a:visited {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  margin-top: .5rem;
+  text-decoration: none;
+  border: 0;
+  color: #ffffff;
+}
+
+.menu-card {
+  margin-top: 1em;
+  border: 1px solid silver;
+  border-radius: 5%;
+  background-color: #ffffff;
+  padding: 1em;
+  display: none;
+  position: relative;
+}
+
+.dropdown-open {
+  display: block;
+  position: absolute;
+  background-color: #ffffff;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 2em;
+  height: 2em;
+  border-radius: 100%;
+  margin-right: .5em;
+}
+
+.user-name:link,
+.user-name:visited,
+.user-name:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
