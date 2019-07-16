@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tentacles</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="topbar">
+
+      <div class="topbar-logo">
+        <div class="topbar-logo-img"><img src="#" alt="logo"></div>
+         <div class="topbar-logo-name"><%= link_to 'Tentacles', root_url %></div>
+      </div>
+
+      <div class="topbar-navigation">
+        <nav aria-label="Main Navigation">
+          <ul class="unordered-list">
+            <li class="dropdown has-submenu">
+              <div class="user">
+                <img src="<%= current_user.image %>" alt="<%= current_user.name %>" class="user-avatar">
+                <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name">
+                  <%= current_user.name %>
+                  <%= fa_icon "caret-down", class: "space-between" %>
+                </a>
+              </div>
+              <ul class="menu-card unordered-list">
+                <li>
+                  <i class="fa fa-sliders menu-card-icon" aria-hidden="true"></i>
+                  <%= link_to 'Settings', settings_path(username: current_user.nickname), method: :get, class: 'menu-card-link'%>
+                </li>
+                <li>
+                  <i class="fa fa-sign-out menu-card-icon" aria-hidden="true"></i>
+                  <%= link_to 'Sign out', signout_path, class: 'menu-card-link' %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+    <%= yield %>
+  </body>
+</html>
