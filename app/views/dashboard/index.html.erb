@@ -1,32 +1,3 @@
-<div class="topbar">
-
-  <div class="topbar-logo">
-    <div class="topbar-logo-img"><img src="#" alt="logo"></div>
-     <div class="topbar-logo-name"><%= link_to 'Tentacles', root_url %></div>
-  </div>
-
-  <div class="topbar-navigation">
-    <nav aria-label="Main Navigation">
-      <ul class="unordered-list">
-        <li class="dropdown has-submenu">
-          <div class="user">
-            <img src="<%= current_user.image %>" alt="<%= current_user.name %>" class="user-avatar">
-            <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name">
-              <%= current_user.name %>
-              <%= fa_icon "caret-down", class: "space-between" %>
-            </a>
-          </div>
-          <ul class="menu-card unordered-list">
-            <li><a href="#">Settings</a></li>
-            <li><%= link_to 'Sign out', signout_path %></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-</div>
-
 <section class="dashboard-container">
   <header>
     <h2>Dashboard</h2>

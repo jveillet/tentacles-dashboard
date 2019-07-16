@@ -62,6 +62,20 @@
   position: relative;
 }
 
+.menu-card-link:link,
+.menu-card-link:visited {
+  color: #006deb;
+}
+
+.menu-card-link:hover {
+  color: #1a85ff;
+  text-decoration: none;
+}
+
+.menu-card-icon {
+  color: #006deb;
+}
+
 .dropdown-open {
   display: block;
   position: absolute;
