@@ -39,6 +39,9 @@ gem 'omniauth-github', '~> 1.3'
 # Font Awesome to add icons on views
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
+# GraphQL client
+gem 'graphql-client', '~> 0.14.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
