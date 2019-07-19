@@ -1,3 +1,30 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.signin-btn {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -moz-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -ms-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: -o-linear-gradient(top, #ffffff, #f5f5f5);
+  background-image: linear-gradient(to bottom, #ffffff, #f5f5f5);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #141414;
+  font-size: 1em;
+  padding: 10px 20px 10px 20px;
+  border: solid #f5f5f5 2px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.signin-btn:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+.signin-btn:active {
+  transform: scale(0.99);
+}
