@@ -54,26 +54,34 @@
 
 .menu-card {
   margin-top: 1em;
-  border: 1px solid silver;
   border-radius: 5%;
   background-color: #ffffff;
   padding: 1em;
   display: none;
   position: relative;
+  width: 8em;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
 }
 
 .menu-card-link:link,
 .menu-card-link:visited {
-  color: #006deb;
+  color: #3d3c7b;
+  text-decoration: none;
 }
 
 .menu-card-link:hover {
-  color: #1a85ff;
+  color: #3d3c7b;
   text-decoration: none;
 }
 
 .menu-card-icon {
-  color: #006deb;
+  color: #3d3c7b;
+}
+
+.menu-card-title {
+  font-size: .8em;
+  color: #191832;
+  margin-bottom: .5em;
 }
 
 .dropdown-open {

@@ -29,10 +29,12 @@
                 </a>
               </div>
               <ul class="menu-card unordered-list">
+                <li><span class="menu-card-title">ACCOUNT</span></li>
                 <li>
                   <i class="fa fa-sliders menu-card-icon" aria-hidden="true"></i>
                   <%= link_to 'Settings', settings_path(username: current_user.nickname), method: :get, class: 'menu-card-link'%>
                 </li>
+                <li><span class="menu-card-title">SESSION</span></li>
                 <li>
                   <i class="fa fa-sign-out menu-card-icon" aria-hidden="true"></i>
                   <%= link_to 'Sign out', signout_path, class: 'menu-card-link' %>
