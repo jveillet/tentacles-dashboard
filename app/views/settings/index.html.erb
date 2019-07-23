@@ -1,5 +1,45 @@
 <div class="settings-container">
-  <section class="settings">
-    <h2>Settings</h2>
+  <section name="settings">
+    <header>
+      <h2>Settings</h2>
+      <hr class="separator" />
+    </header>
   </section>
+
+  <section name="organizations">
+    <header>
+      <h3 class="setttings-title">ORGANIZATIONS</h3>
+    </header>
+
+    <div class="organizations-list">
+      <div class="organization">
+        <div class="organization-avatar"><img src="<%= viewer.avatar_url  %>" alt="<%= viewer.name %>"></div>
+        <div class="organization-name"><%= viewer.name %></div>
+        <div class="organization-login">@<%= viewer.login %></div>
+      </div>
+      <% viewer.organizations.nodes.each do |org| %>
+        <div class="organization">
+          <div class="organization-avatar"><img src="<%= org.avatar_url %>" alt="<%= org.name %>"></div>
+          <div class="organization-name"><%= org.name %></div>
+          <div class="organization-login">@<%= org.login %></div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <section name="repositories">
+    <header>
+      <h3 class="setttings-title">REPOSITORIES</h3>
+    </header>
+    <div class="repositories-list">
+      <% repos.each do |repo| %>
+        <div class="repository">
+          <%=  repo.name %>
+          <% if repo.is_private %>
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section
 </div>

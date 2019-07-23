@@ -13,11 +13,33 @@ require 'action_cable/engine'
 require 'sprockets/railtie'
 # require "rails/test_unit/railtie"
 
+require 'graphql/client'
+require 'graphql/client/http'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module Tentacles
+  ##
+  # GraphQL Configuration
+  #
+  HTTPAdapter = GraphQL::Client::HTTP.new('https://api.github.com/graphql') do
+      def headers(context)
+        # Optionally set any HTTP headers
+        token =  "Bearer #{context[:access_token]}" if context[:access_token]
+        {
+          'User-Agent': 'Tentacles',
+          'Authorization': token
+        }
+      end
+    end
+
+  Client = GraphQL::Client.new(
+    schema: GraphQL::Client.load_schema('db/schema.json'),
+    execute: HTTPAdapter
+  )
+
   ##
   # Default Application config
   #

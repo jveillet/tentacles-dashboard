@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     redirect_to signin_path, :alert => 'You need to sign in for access to this page.' if !current_user
   end
+
+  def client_context
+    { access_token: session[:token] }
+  end
 end
