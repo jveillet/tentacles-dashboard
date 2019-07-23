@@ -1,4 +1,5 @@
 class SettingsController < ApplicationController
+  include SettingsHelper
   layout 'default'
 
   OrganizationsQuery = Tentacles::Client.parse <<-'GRAPHQL'
@@ -37,13 +38,12 @@ class SettingsController < ApplicationController
   GRAPHQL
 
   def index
-    results = Tentacles::Client.query(OrganizationsQuery, variables: { last_orgs: 10, last_repos: 100 }, context: client_context)
-    repos = results&.data&.viewer&.repositories&.nodes.map { |repo| repo }
-    results&.data&.viewer&.organizations&.nodes.each do |node|
-      repos << node.repositories.nodes.map { |repo| repo }
-    end
-
-    repos.flatten!
+    results = Tentacles::Client.query(
+      OrganizationsQuery,
+      variables: { last_orgs: 10, last_repos: 100 },
+      context: client_context
+    )
+    repos = map_repositories(results)
 
     render 'settings/index', locals: {
       viewer: results.data.viewer,
