@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+##
+# Settings COntroller.
+# This file fetches the organizations and Repositories from GitHub's GraphQL API.
+#
 class SettingsController < ApplicationController
   include SettingsHelper
   layout 'default'
