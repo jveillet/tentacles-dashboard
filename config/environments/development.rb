@@ -54,10 +54,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-   config.log_level = :debug
-   logger           = ActiveSupport::Logger.new(STDOUT)
-   logger.formatter = config.log_formatter
-   config.logger    = ActiveSupport::TaggedLogging.new(logger)
-   config.web_console.whiny_requests = false
-   config.web_console.permissions = '172.18.0.0/16'
+  config.log_level = :debug
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  config.web_console.whiny_requests = false
 end
