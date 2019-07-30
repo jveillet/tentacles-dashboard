@@ -1,6 +1,58 @@
-<section class="dashboard-container">
-  <header>
-    <h2>Dashboard</h2>
-  </header>
+<div class="dashboard-container">
+  <section name="dashboard">
+    <header>
+      <h2>Dashboard</h2>
+      <hr class="separator" />
+    </header>
+  </section>
 
-</section>
+  <section name="pull requests">
+    <div class="pr-list">
+      <% pull_requests&.each do |pr| %>
+        <div class="pr-card">
+          <div class="pr-card-body">
+
+            <div class="pr-card-icon pr-card-item">
+              <img class="pr-icon" src="<%= image_path('git-pr.png') %>" alt="Pull Request">
+            </div><!-- end of pr-card-icon -->
+
+            <div class="pr-card-title pr-card-item">
+              <% if pr.node.title&.size > 80 %>
+                <%=  pr.node.title[0..77] %>...
+              <% else %>
+                <%=  pr.node.title %>
+              <% end %>
+            </div><!-- end of pr-card-title -->
+
+            <div class="pr-card-state pr-card-item">
+              <div class="pr-card-number">
+                <% if pr.node.number.to_s&.size > 5%>
+                  <a href="<%= pr.node.url %>" title="<%= pr.node.number %>">#<%=  pr.node.number.to_s[0..3] %>..</a>
+                <% else %>
+                  <a href="<%= pr.node.url %>">#<%=  pr.node.number %></a>
+                <% end %>
+              </div><!-- end of pr-card-number -->
+              <% node = pr&.node&.commits&.nodes.first %>
+              <% if node&.commit&.status&.state == 'SUCCESS' %>
+                <div class="pr-card-status pr-card-status-success" aria-label="Pull request status success">&nbsp;</div>
+              <% elsif node&.commit&.status&.state == 'FAILURE' %>
+                <div class="pr-card-status pr-card-status-failure" aria-label="Pull request status failure">&nbsp;</div>
+              <% elsif node&.commit&.status&.state == 'PENDING' %>
+                <div class="pr-card-status pr-card-status-pending" aria-label="Pull request status pending">&nbsp;</div>
+              <% else %>
+                <div class="pr-card-status pr-card-status-default" aria-label="No pull request status">&nbsp;</div>
+              <% end %>
+
+            </div><!-- end of pr-card-status -->
+
+          </div><!-- end of pr-card-body -->
+          <div class="pr-card-footer">
+            <div class="pr-card-target">
+              <%=  pr.node.base_ref_name %>
+            </div>
+          </div><!-- end of pr-card-footer -->
+        </div><!-- end of pr-card -->
+      <% end %>
+    </div>
+  </section>
+</div>

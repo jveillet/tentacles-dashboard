@@ -7,6 +7,7 @@
 class SettingsController < ApplicationController
   include SettingsHelper
   layout 'default'
+  before_action :authenticate_user!
 
   OrganizationsQuery = Tentacles::Client.parse <<-'GRAPHQL'
     query($last_orgs:Int!, $last_repos:Int!){

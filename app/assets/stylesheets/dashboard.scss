@@ -4,3 +4,100 @@
 .dashboard-container {
   margin: 2em;
 }
+
+.pr-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.pr-card {
+  background-color: #ffffff;
+  padding: .5em;
+  margin: .25em;
+  width: 320px;
+  height: 120px;
+  position:relative;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
+  border-radius: 0.25em;
+}
+
+.pr-card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pr-card-item {
+  padding: .5em;
+}
+
+.pr-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.pr-card-footer {
+  position: absolute;
+  bottom: 1em;
+}
+
+.pr-card-title {
+  font-weight: bold;
+  height: 90px;
+  line-height: 1.2;
+  width: 190px;
+}
+
+.pr-card-target {
+  color: #555555;
+  margin-left: .5em;
+}
+
+.pr-card-state {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  background-color: #363e46;
+  border-radius: .5em;
+}
+
+.pr-card-number a:link,
+.pr-card-number a:visited {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.pr-card-number a:hover {
+  text-decoration: underline;
+}
+
+.pr-card-status {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin-left: .5em;
+}
+
+.pr-card-status-default {
+  background-color: #ffffff;
+}
+
+.pr-card-status-pending {
+  background-color: #d76202;
+}
+
+.pr-card-status-success {
+  background-color: #2db04e;
+}
+
+.pr-card-status-failure {
+  background-color: #d12938;
+}
