@@ -19,6 +19,17 @@ services:
     depends_on:
       - db
 
+  webpacker:
+    build:
+      context: .
+    env_file:
+      - '.env'
+    command: ./bin/webpack-dev-server
+    volumes:
+      - "${PWD}:/home/rails/tentacles"
+    ports:
+      - '3035:3035'
+
 volumes:
   postgres_tentacles:
     external: true
