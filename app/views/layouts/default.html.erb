@@ -32,9 +32,7 @@
                 <li><span class="menu-card-title">ACCOUNT</span></li>
                 <li>
                   <i class="fa fa-sliders menu-card-icon" aria-hidden="true"></i>
-                  <% if current_user %>
-                    <%= link_to 'Settings', settings_path(username: current_user&.nickname), method: :get, class: 'menu-card-link'%>
-                  <% end %>
+                  <%= link_to 'Settings', settings_path(username: current_user&.nickname), method: :get, class: 'menu-card-link'%>
                 </li>
                 <li><span class="menu-card-title">SESSION</span></li>
                 <li>
