@@ -20,20 +20,22 @@ require 'graphql/client/http'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
 module Tentacles
   ##
   # GraphQL Configuration
   #
   HTTPAdapter = GraphQL::Client::HTTP.new('https://api.github.com/graphql') do
-      def headers(context)
-        # Optionally set any HTTP headers
-        token =  "Bearer #{context[:access_token]}" if context[:access_token]
-        {
-          'User-Agent': 'Tentacles',
-          'Authorization': token
-        }
-      end
+    def headers(context)
+      # Optionally set any HTTP headers
+      token = "Bearer #{context[:access_token]}" if context[:access_token]
+      {
+        'User-Agent': 'Tentacles',
+        'Authorization': token
+      }
     end
+  end
 
   Client = GraphQL::Client.new(
     schema: GraphQL::Client.load_schema('db/schema.json'),
@@ -59,13 +61,13 @@ module Tentacles
     # RSpec and Factory Bot config
     config.generators do |g|
       g.test_framework :rspec,
-        :fixtures => true,
-        :view_specs => false,
-        :helper_specs => false,
-        :routing_specs => false,
-        :controller_specs => true,
-        :request_specs => true
-      g.fixture_replacement :factory_bot, :dir => "spec/factories"
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: true,
+                       request_specs: true
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
   end
 end
