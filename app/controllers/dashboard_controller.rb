@@ -6,6 +6,7 @@
 class DashboardController < ApplicationController
   include DashboardHelper
   layout 'default'
+  before_action :authenticate_user!
 
   PullRequestsQuery = Tentacles::Client.parse <<-'GRAPHQL'
     query($queryString: String!, , $number_or_prs: Int!, $number_or_labels: Int!) {
