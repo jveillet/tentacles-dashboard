@@ -42,6 +42,9 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 # GraphQL client
 gem 'graphql-client', '~> 0.14.0'
 
+# Use webpack to manage app-like JavaScript modules in Rails
+gem 'webpacker', '~> 4.0', '>= 4.0.7'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
