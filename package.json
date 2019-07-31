@@ -1,10 +1,16 @@
 {
   "name": "tentacles",
   "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
   "dependencies": {
-    "@rails/webpacker": "^4.0.7"
+    "@rails/webpacker": "^4.0.7",
+    "rails-ujs": "^5.2.3"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.0",
+    "eslint": "^6.1.0",
     "webpack-dev-server": "^3.7.2"
   }
 }
