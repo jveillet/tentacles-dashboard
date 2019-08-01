@@ -36,9 +36,6 @@ gem 'omniauth', '~> 1.9'
 # Github social login
 gem 'omniauth-github', '~> 1.3'
 
-# Font Awesome to add icons on views
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
-
 # GraphQL client
 gem 'graphql-client', '~> 0.14.0'
 
