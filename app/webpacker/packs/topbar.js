@@ -1,6 +1,5 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-// document.onreadystatechange = function () {
 document.addEventListener('readystatechange', (event) => {
   if(document.readyState === "interactive") {
     var userName = document.querySelector(".user-name");

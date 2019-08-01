@@ -1,7 +1,7 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  source_path: app/javascript
+  source_path: app/webpacker
   source_entry_path: packs
   public_root_path: public
   public_output_path: packs
@@ -55,14 +55,19 @@ development:
   # Verifies that correct packages and versions are installed by inspecting package.json, yarn.lock, and node_modules
   check_yarn_integrity: true
 
+  # Extract and emit a css file
+  extract_css: true
+
+  webpack_compile_output: true
+
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
     https: false
-    # host: localhost
     host: webpacker
     port: 3035
-    public: localhost:3035
-    hmr: true
+    sockPort: 3035
+    public: 0.0.0.0:3035
+    hmr: false
     # Inline should be set to true if using HMR
     inline: true
     overlay: true
@@ -74,6 +79,8 @@ development:
       'Access-Control-Allow-Origin': '*'
     watch_options:
       ignored: '**/node_modules/**'
+      aggregate_timeout: 300
+      poll: 500
 
 
 test:

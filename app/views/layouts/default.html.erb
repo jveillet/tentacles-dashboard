@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag  'stylesheets', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
   </head>
 
@@ -25,18 +25,18 @@
                 <img src="<%= current_user&.image %>" alt="<%= current_user&.name %>" class="user-avatar">
                 <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name">
                   <%= current_user&.name %>
-                  <%= fa_icon "caret-down", class: "space-between" %>
+                  <i class="fas fa-caret-down space-right"></i>
                 </a>
               </div>
               <ul class="menu-card unordered-list">
                 <li><span class="menu-card-title">ACCOUNT</span></li>
                 <li>
-                  <i class="fa fa-sliders menu-card-icon" aria-hidden="true"></i>
+                  <i class="fas fa-sliders-h menu-card-icon space-right"></i>
                   <%= link_to 'Settings', settings_path(username: current_user&.nickname), method: :get, class: 'menu-card-link'%>
                 </li>
                 <li><span class="menu-card-title">SESSION</span></li>
                 <li>
-                  <i class="fa fa-sign-out menu-card-icon" aria-hidden="true"></i>
+                  <i class="fas fa-sign-out-alt  menu-card-icon space-right"></i>
                   <%= link_to 'Sign out', signout_path, class: 'menu-card-link' %>
                 </li>
               </ul>
