@@ -1,0 +1,15 @@
+@import '../stylesheets/sessions';
+@import '../stylesheets/topbar';
+@import '../stylesheets/dashboard';
+@import '../stylesheets/settings';
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  background-color: #f6f8fa;
+  color: #0c0c0d;
+}
+
