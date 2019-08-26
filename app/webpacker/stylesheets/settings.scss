@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   align-content: center;
 }
@@ -72,3 +72,68 @@
 .fa-lock {
   color: #dbab09;
 }
+
+.fa-check-circle {
+  color: #239d56;
+}
+
+.settings-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  background: hsl(0, 0%, 90%);
+  padding: 1em;
+  border-radius: .5em;
+}
+
+.settings-save-btn {
+  background: #875390;
+  background-image: linear-gradient(to bottom, #875390, #5d3c7b);
+  border-radius: .5em;
+  color: #ffffff;
+  font-size: 1em;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+}
+
+.settings-save-btn:active {
+  background-image: linear-gradient(to bottom, #5d3c7b, #875390);
+  transform: scale(0.99);
+}
+
+.settings-cancel:link,
+.settings-cancel:visited {
+  text-decoration: none;
+  color: #875390;
+  font-size: 1em;
+}
+
+.settings-cancel:hover {
+  text-decoration: underline;
+}
+
+.alert-header {
+  font-weight: bold;
+}
+
+.alert-success {
+  background-color: #66da96;
+  border-left: 1em solid #239d56;
+  color: #104928;
+  padding: .5em;
+  width: 100%;
+}
+
+.alert-error {
+  background-color: #e2a2ae;
+  border-left: 1em solid #b00020;
+  color: #c23952;
+  padding: .5em;
+  width: 100%;
+}
+

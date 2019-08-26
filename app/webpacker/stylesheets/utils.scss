@@ -1,0 +1,41 @@
+// A collection of utility classes
+
+.unordered-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.space-right {
+  margin-right: .5em;
+}
+
+.space-right-1 {
+  margin-right: 1em;
+}
+
+.space-top {
+  margin-top: 1em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.ease-out {
+  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
+}
+
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+

@@ -1,2 +1,2 @@
-import '../images'
+import '../images';
 
