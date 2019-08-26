@@ -6,6 +6,12 @@
     </header>
   </section>
 
+  <div class="alert" data-target="settings.alert">
+    <div class="alert-header">
+    </div>
+    <div class="alert-body"></div>
+  </div>
+
   <section name="organizations">
     <header>
       <h3 class="setttings-title">ORGANIZATIONS</h3>
@@ -31,15 +37,27 @@
     <header>
       <h3 class="setttings-title">REPOSITORIES</h3>
     </header>
-    <div class="repositories-list">
-      <% repos.each do |repo| %>
-        <div class="repository">
-          <%=  repo.name %>
-          <% if repo.is_private %>
-            <i class="fa fa-lock" aria-hidden="true"></i>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+
+    <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
+      <div class="repositories-list">
+        <% repos.each do |repo| %>
+          <div class="repository">
+            <%= check_box_tag('repo[]', repo.name, false, { id: repo.name }) %>
+            <%= label_tag(repo.name, repo.name) %>
+            <% if repo.is_private %>
+              <i class="fas fa-lock"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="settings-actions space-top">
+        <%= link_to 'Cancel', root_url, class: 'settings-cancel space-right-1' %>
+        <%= f.button('Save', type: :submit, class: 'settings-save-btn') do %>
+          <i class="fas fa-circle-notch fa-spin js-loading-indicator hidden"></i>
+          Save
+        <% end %>
+      </div>
+    <% end %>
   </section
 </div>
+

@@ -44,6 +44,10 @@ class SettingsController < ApplicationController
     }
   GRAPHQL
 
+  ##
+  # Retrieve and display the settings for a user.
+  # This method fetches organization, user profile, and repositories.
+  #
   def index
     results = Tentacles::Client.query(
       OrganizationsQuery,
@@ -56,5 +60,19 @@ class SettingsController < ApplicationController
       viewer: results.data.viewer,
       repos: repos
     }
+  end
+
+  ##
+  # Save settings of the user.
+  # This method save the repositories into the database so that users are able
+  # to retrieve their preferencies.
+  #
+  # TO DO: Save the input into the database.
+  #
+  def create
+    render json: {}, content_type: 'application/json', status: :ok
+    # render json: {
+    #   message: 'An error occured while saving your settings. Please try again later.'
+    # }, status: :bad_request
   end
 end
