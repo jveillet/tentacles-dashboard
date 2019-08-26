@@ -67,12 +67,17 @@ class SettingsController < ApplicationController
   # This method save the repositories into the database so that users are able
   # to retrieve their preferencies.
   #
-  # TO DO: Save the input into the database.
-  #
   def create
-    render json: {}, content_type: 'application/json', status: :ok
-    # render json: {
-    #   message: 'An error occured while saving your settings. Please try again later.'
-    # }, status: :bad_request
+    repos = params[:repo] || []
+    settings = { repos: repos }
+    @user = current_user
+
+    if @user.update(settings: settings)
+      render json: {}, content_type: 'application/json', status: :ok
+    else
+      render json: {
+        message: 'An error occured while saving your settings. Please try again later.'
+      }, status: :bad_request
+    end
   end
 end
