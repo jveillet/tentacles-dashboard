@@ -6,8 +6,14 @@
 module DashboardHelper
   def build_query_string(repos)
     <<~STRING
-      is:pr is:open created:>#{limit_date} #{repos.join(' ') unless repos.empty?} sort:created-asc
+      is:pr is:open created:>#{limit_date} #{build_repos(repos) unless repos.empty?} sort:created-asc
     STRING
+  end
+
+  def build_repos(repos)
+    repos.map do |repo|
+      "repo:#{repo}"
+    end.join(' ')
   end
 
   def limit_date
@@ -15,7 +21,6 @@ module DashboardHelper
   end
 
   def user_repositories
-    repos = ENV['GITHUB_REPOS'].to_s
-    repos.split(',')
+    current_user.settings['repos']
   end
 end
