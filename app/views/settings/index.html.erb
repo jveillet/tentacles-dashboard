@@ -42,12 +42,12 @@
       <div class="repositories-list">
         <% repos.each do |repo| %>
           <div class="repository">
-            <% if current_user.settings['repos'].include? repo.name %>
-              <%= check_box_tag('repo[]', repo.name, true, { id: repo.name }) %>
+            <% if current_user.settings['repos'].include? repo.name_with_owner %>
+              <%= check_box_tag('repo[]', repo.name_with_owner, true, { id: repo.name_with_owner }) %>
             <% else %>
-              <%= check_box_tag('repo[]', repo.name, false, { id: repo.name }) %>
+              <%= check_box_tag('repo[]', repo.name_with_owner, false, { id: repo.name_with_owner }) %>
             <% end %>
-            <%= label_tag(repo.name, repo.name) %>
+            <%= label_tag(repo.name_with_owner, repo.name_with_owner) %>
             <% if repo.is_private %>
               <i class="fas fa-lock"></i>
             <% end %>

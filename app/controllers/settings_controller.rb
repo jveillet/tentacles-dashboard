@@ -21,6 +21,7 @@ class SettingsController < ApplicationController
           nodes {
             name
             isPrivate
+            nameWithOwner
           }
         }
         organizations(last: $last_orgs) {
@@ -36,6 +37,7 @@ class SettingsController < ApplicationController
               nodes {
                 name
                 isPrivate
+                nameWithOwner
               }
             }
           }
