@@ -2,7 +2,6 @@
   <section name="settings">
     <header>
       <h2>Settings</h2>
-      <hr class="separator" />
     </header>
   </section>
 
@@ -13,10 +12,6 @@
   </div>
 
   <section name="organizations">
-    <header>
-      <h3 class="setttings-title">ORGANIZATIONS</h3>
-    </header>
-
     <div class="organizations-list">
       <div class="organization">
         <div class="organization-avatar"><img src="<%= viewer.avatar_url  %>" alt="<%= viewer.name %>"></div>
@@ -41,11 +36,12 @@
     <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
       <div class="repositories-list">
         <% repos.each do |repo| %>
-          <div class="repository">
             <% if current_user.settings['repos'].include? repo.name_with_owner %>
-              <%= check_box_tag('repo[]', repo.name_with_owner, true, { id: repo.name_with_owner }) %>
+          <div class="repository repository-checked">
+              <%= check_box_tag('repo[]', repo.name_with_owner, true, { id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
             <% else %>
-              <%= check_box_tag('repo[]', repo.name_with_owner, false, { id: repo.name_with_owner }) %>
+          <div class="repository">
+            <%= check_box_tag('repo[]', repo.name_with_owner, false, { id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
             <% end %>
             <%= label_tag(repo.name_with_owner, repo.name_with_owner) %>
             <% if repo.is_private %>
@@ -55,10 +51,9 @@
         <% end %>
       </div>
       <div class="settings-actions space-top">
-        <%= link_to 'Cancel', root_url, class: 'settings-cancel space-right-1' %>
-        <%= f.button('Save', type: :submit, class: 'settings-save-btn') do %>
+        <%= f.button('Update settings', type: :submit, class: 'settings-save-btn') do %>
           <i class="fas fa-circle-notch fa-spin js-loading-indicator hidden"></i>
-          Save
+          Update settings
         <% end %>
       </div>
     <% end %>

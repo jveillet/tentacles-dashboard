@@ -5,7 +5,6 @@ export default class extends Controller {
 
     onSuccess(event) {
         event.preventDefault();
-        console.log('OnSuccess fired');
         let [data, status, xhr] = event.detail;
         document.querySelector('.js-loading-indicator').classList.toggle('hidden');
         document.querySelector('.alert-header').innerHTML = '<i class="fas fa-check-circle space-right"></i>Marvellous!';
@@ -40,6 +39,14 @@ export default class extends Controller {
     disconnect() {
         if (this.timer) {
             clearTimer(this.timer);
+        }
+    }
+
+    toggleRepository(event) {
+        if(event.target.checked) {
+            event.srcElement.parentElement.classList.add('repository-checked');
+        } else {
+            event.srcElement.parentElement.classList.remove('repository-checked');
         }
     }
 }

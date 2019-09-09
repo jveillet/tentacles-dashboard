@@ -69,8 +69,15 @@
   box-shadow: 0 2px 6px 0 rgba(0, 0%, 0%, 0.2);
 }
 
+.repository-checked {
+  background-color: #66da96;
+}
+
 .fa-lock {
-  color: #dbab09;
+  color: #ffffff;
+  background-color: #0c0c0d;
+  padding: .5em;
+  border-radius: 50%;
 }
 
 .fa-check-circle {
