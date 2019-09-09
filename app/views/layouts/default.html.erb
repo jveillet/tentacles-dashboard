@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div class="topbar">
+    <div class="topbar" data-controller="topbar">
 
       <div class="topbar-logo">
         <div class="topbar-logo-img"><img src="#" alt="logo"></div>
@@ -23,12 +23,12 @@
             <li class="dropdown has-submenu">
               <div class="user">
                 <img src="<%= current_user&.image %>" alt="<%= current_user&.name %>" class="user-avatar">
-                <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name">
+                <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name" data-action="click->topbar#toggleMenu keyup->topbar#closeMenuWithoutDelay">
                   <%= current_user&.name %>
                   <i class="fas fa-caret-down space-right"></i>
                 </a>
               </div>
-              <ul class="menu-card unordered-list">
+              <ul class="menu-card unordered-list" data-target="topbar.menu" data-action="mouseleave->topbar#closeMenu">
                 <li><span class="menu-card-title">ACCOUNT</span></li>
                 <li>
                   <i class="fas fa-sliders-h menu-card-icon space-right"></i>

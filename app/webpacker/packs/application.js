@@ -16,7 +16,6 @@
 // const imagePath = (name) => images(name, true)
 
 import Rails from 'rails-ujs';
-import './topbar';
 
 Rails.start();
 
