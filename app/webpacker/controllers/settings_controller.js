@@ -36,17 +36,31 @@ export default class extends Controller {
         }, 10000);
     }
 
-    disconnect() {
-        if (this.timer) {
-            clearTimer(this.timer);
-        }
-    }
-
     toggleRepository(event) {
         if(event.target.checked) {
             event.srcElement.parentElement.classList.add('repository-checked');
         } else {
             event.srcElement.parentElement.classList.remove('repository-checked');
+        }
+    }
+
+    filterRepositories(event) {
+        var searchElement = document.querySelector('.search');
+        var searchedItem = searchElement.value;
+        var repos = document.querySelectorAll('.repo');
+        repos.forEach(function(element) {
+            var item = element.value;
+            element.parentElement.style.display = 'none';
+            var result = item.match(searchedItem);
+            if (result != null) {
+                element.parentElement.style.display = 'block';
+            }
+        });
+    }
+
+    disconnect() {
+        if (this.timer) {
+            clearTimer(this.timer);
         }
     }
 }

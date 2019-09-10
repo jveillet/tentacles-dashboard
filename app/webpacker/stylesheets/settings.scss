@@ -73,11 +73,15 @@
   background-color: #66da96;
 }
 
+.repository-label {
+  cursor: pointer;
+}
+
 .fa-lock {
   color: #ffffff;
   background-color: #0c0c0d;
-  padding: .5em;
   border-radius: 50%;
+  padding: 0.5em 0.6em;
 }
 
 .fa-check-circle {
@@ -142,5 +146,33 @@
   color: #c23952;
   padding: .5em;
   width: 100%;
+}
+
+input[type = text] {
+  border: .0625em solid #d3d3d3;
+  background-color: #ffffff;
+  display: block;
+  font-size: 100%;
+  padding-left: 2em;
+}
+
+.large-input {
+   height: 2.5em;
+   width: 25em;
+   padding: .5em;
+}
+
+.filter-input i {
+  position: absolute;
+}
+
+.filter-input {
+  margin: 2em 0 2em .5em;
+}
+
+.filter-input .icon {
+  padding: .625em;
+  min-width: 2.5em;
+  color: #5d3c7b;
 }
 
