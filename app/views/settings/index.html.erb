@@ -33,17 +33,22 @@
       <h3 class="setttings-title">REPOSITORIES</h3>
     </header>
 
+    <div class="filter-input">
+      <i class="fas fa-search icon"></i>
+      <input type="text" class="search large-input search" placeholder="Filter repository names..." data-action="keyup->settings#filterRepositories">
+    </div>
+
     <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
       <div class="repositories-list">
         <% repos.each do |repo| %>
             <% if current_user.settings['repos'].include? repo.name_with_owner %>
           <div class="repository repository-checked">
-              <%= check_box_tag('repo[]', repo.name_with_owner, true, { id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
+              <%= check_box_tag('repo[]', repo.name_with_owner, true, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
             <% else %>
           <div class="repository">
-            <%= check_box_tag('repo[]', repo.name_with_owner, false, { id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
+            <%= check_box_tag('repo[]', repo.name_with_owner, false, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
             <% end %>
-            <%= label_tag(repo.name_with_owner, repo.name_with_owner) %>
+            <label for="<%= repo.name_with_owner %>" class="repository-label"%><%= repo.name_with_owner %></label>
             <% if repo.is_private %>
               <i class="fas fa-lock"></i>
             <% end %>
