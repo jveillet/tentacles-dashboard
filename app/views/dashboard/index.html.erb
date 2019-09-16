@@ -1,4 +1,4 @@
-<div class="dashboard-container">
+<div class="dashboard-container" data-controller="dashboard">
   <section name="pull requests">
     <div class="pr-list">
       <% pull_requests&.each do |pr| %>
@@ -27,13 +27,13 @@
               </div><!-- end of pr-card-number -->
               <% node = pr&.node&.commits&.nodes.first %>
               <% if node&.commit&.status&.state == 'SUCCESS' %>
-                <div class="pr-card-status pr-card-status-success" aria-label="Pull request status success">&nbsp;</div>
+                <div class="pr-card-status pr-card-status-success" aria-label="Pull request status success" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
               <% elsif node&.commit&.status&.state == 'FAILURE' %>
-                <div class="pr-card-status pr-card-status-failure" aria-label="Pull request status failure">&nbsp;</div>
+                <div class="pr-card-status pr-card-status-failure" aria-label="Pull request status failure" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
               <% elsif node&.commit&.status&.state == 'PENDING' %>
-                <div class="pr-card-status pr-card-status-pending" aria-label="Pull request status pending">&nbsp;</div>
+                <div class="pr-card-status pr-card-status-pending" aria-label="Pull request status pending" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
               <% else %>
-                <div class="pr-card-status pr-card-status-default" aria-label="No pull request status">&nbsp;</div>
+                <div class="pr-card-status pr-card-status-default" aria-label="No pull request status" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
               <% end %>
 
             </div><!-- end of pr-card-status -->

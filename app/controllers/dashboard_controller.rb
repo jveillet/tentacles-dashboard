@@ -73,4 +73,19 @@ class DashboardController < ApplicationController
       pull_requests: pull_requests
     }
   end
+
+  def refresh
+    pull_requests = []
+
+    unless user_repositories.empty?
+      results = Tentacles::Client.query(
+        PullRequestsQuery,
+        variables: { queryString: build_query_string(user_repositories), number_or_prs: 100, number_or_labels: 10 },
+        context: client_context
+      )
+      pull_requests = results&.data&.search&.edges
+    end
+
+    render json: { pull_requests: pull_requests }, content_type: 'application/json', status: :ok
+  end
 end
