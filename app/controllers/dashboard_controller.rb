@@ -5,6 +5,7 @@
 #
 class DashboardController < ApplicationController
   include DashboardHelper
+  include ActionView::Helpers::DateHelper
   layout 'default'
   before_action :authenticate_user!
 

@@ -19,10 +19,30 @@
   padding: .5em;
   margin: .25em;
   width: 320px;
-  height: 140px;
+  height: 150px;
   position:relative;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
   border-radius: 0.25em;
+}
+
+.pr-card__age--normal {
+  border-top: 0;
+}
+
+.pr-card__age--critical {
+  border-top: .3em solid #d12938;
+}
+
+.pr-card__age--important {
+  border-top: .3em solid rgba(209, 41, 55, 0.8);
+}
+
+.pr-card__age--high {
+  border-top: .3em solid rgba(209, 41, 55, 0.6);
+}
+
+.pr-card__age--medium {
+  border-top: .3em solid rgba(209, 41, 55, 0.4);
 }
 
 .pr-card__org {
