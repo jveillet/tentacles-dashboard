@@ -39,6 +39,7 @@ class DashboardController < ApplicationController
                closed
                headRefName
                baseRefName
+               baseRepository { nameWithOwner }
                commits(last: 1){
                  nodes {
                    commit {

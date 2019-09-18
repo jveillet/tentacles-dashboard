@@ -21,8 +21,8 @@ export default class extends Controller {
                         var commit = element.data.node.commits.nodes[0].commit;
                         if(commit.status) {
                             var state = commit.status.state;
-                            prStatus.classList.remove('pr-card-status-pending');
-                            prStatus.classList.add(`pr-card-status-${state.toLowerCase()}`);
+                            prStatus.classList.remove('pr-card__status--pending');
+                            prStatus.classList.add(`pr-card__status--${state.toLowerCase()}`);
                         }
                     }
                 });
@@ -33,12 +33,12 @@ export default class extends Controller {
         // Use 1 800 000 for 30 min
         this.refreshTimer = setInterval(() => {
             this.commitTargets.forEach((element, index) => {
-                element.classList.remove('pr-card-status-success', 'pr-card-status-failure', 'pr-card-status-pending');
-                element.classList.add('pr-card-status-pending');
+                element.classList.remove('pr-card__status--success', 'pr-card__status--failure', 'pr-card__status--pending');
+                element.classList.add('pr-card__status--pending');
 
             });
             this.refreshPullRequests();
-        }, 30000) // Every 30 seconds
+        }, 60000) // Every 1 minute
     }
 
     stopRefreshing() {

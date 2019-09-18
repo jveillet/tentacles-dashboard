@@ -5,7 +5,7 @@
   margin: 2em;
 }
 
-.pr-list {
+.dashboard__cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -19,46 +19,60 @@
   padding: .5em;
   margin: .25em;
   width: 320px;
-  height: 120px;
+  height: 140px;
   position:relative;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
   border-radius: 0.25em;
 }
 
-.pr-card-body {
+.pr-card__org {
+  font-size: .8em;
+  color: #72687b;
+}
+
+.pr-card__header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  font-size: .8em;
+  color: #875390;
+  margin-bottom: 1em;
 }
 
-.pr-card-item {
-  padding: .5em;
-}
-
-.pr-icon {
-  width: 1.5em;
-  height: 1.5em;
-}
-
-.pr-card-footer {
-  position: absolute;
-  bottom: 1em;
-}
-
-.pr-card-title {
-  font-weight: bold;
-  height: 90px;
-  line-height: 1.2;
-  width: 190px;
-}
-
-.pr-card-target {
-  color: #555555;
+.pr-card__base {
   margin-left: .5em;
 }
 
-.pr-card-state {
+.pr-card__title {
+  width: 100%;
+  font-weight: 600;
+  font-size: .9em;
+}
+
+.pr-card__author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: .5em;
+  right: .5em;
+}
+
+.pr-card__author--avatar {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.pr-card__author--name {
+  margin-right: .5em;
+  font-size: .8em;
+  color: #875390;
+}
+
+.pr-card__state {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -67,37 +81,39 @@
   align-content: center;
   background-color: #363e46;
   border-radius: .5em;
+  padding: .5em;
 }
 
-.pr-card-number a:link,
-.pr-card-number a:visited {
+.pr-card__number a:link,
+.pr-card__number a:visited {
   text-decoration: none;
   color: #ffffff;
 }
 
-.pr-card-number a:hover {
+.pr-card__number a:hover {
   text-decoration: underline;
 }
 
-.pr-card-status {
+.pr-card__status {
   width: 1em;
   height: 1em;
   border-radius: 50%;
   margin-left: .5em;
 }
 
-.pr-card-status-default {
+.pr-card__status--default {
   display: none;
 }
 
-.pr-card-status-pending {
+.pr-card__status--pending {
   background-color: #d76202;
 }
 
-.pr-card-status-success {
+.pr-card__status--success {
   background-color: #2db04e;
 }
 
-.pr-card-status-failure {
+.pr-card__status--failure {
   background-color: #d12938;
 }
+
