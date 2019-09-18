@@ -1,49 +1,49 @@
 <div class="dashboard-container" data-controller="dashboard">
   <section name="pull requests">
-    <div class="pr-list">
+    <div class="dashboard__cards">
       <% pull_requests&.each do |pr| %>
         <div class="pr-card">
-          <div class="pr-card-body">
 
-            <div class="pr-card-icon pr-card-item">
-              <img class="pr-icon" src="<%= asset_pack_path('media/images/git-pr.png') %>" alt="Pull Request">
-            </div><!-- end of pr-card-icon -->
+          <div class="pr-card__header">
 
-            <div class="pr-card-title pr-card-item">
-              <% if pr.node.title&.size > 80 %>
-                <%=  pr.node.title[0..77] %>...
-              <% else %>
-                <%=  pr.node.title %>
-              <% end %>
-            </div><!-- end of pr-card-title -->
-
-            <div class="pr-card-state pr-card-item">
-              <div class="pr-card-number">
-                <% if pr.node.number.to_s&.size > 5%>
-                  <a href="<%= pr.node.url %>" title="<%= pr.node.number %>">#<%=  pr.node.number.to_s[0..3] %>..</a>
-                <% else %>
-                  <a href="<%= pr.node.url %>">#<%=  pr.node.number %></a>
-                <% end %>
+            <div class="pr-card__state">
+              <div class="pr-card__number">
+                <a href="<%= pr.node.url %>">#<%=  pr.node.number %></a>
               </div><!-- end of pr-card-number -->
               <% node = pr&.node&.commits&.nodes.first %>
               <% if node&.commit&.status&.state == 'SUCCESS' %>
-                <div class="pr-card-status pr-card-status-success" aria-label="Pull request status success" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
+                <div class="pr-card__status pr-card__status--success" aria-label="Pull request status success" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
               <% elsif node&.commit&.status&.state == 'FAILURE' %>
-                <div class="pr-card-status pr-card-status-failure" aria-label="Pull request status failure" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
+                <div class="pr-card__status pr-card__status--failure" aria-label="Pull request status failure" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
               <% elsif node&.commit&.status&.state == 'PENDING' %>
-                <div class="pr-card-status pr-card-status-pending" aria-label="Pull request status pending" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
+                <div class="pr-card-status pr-card__status--pending" aria-label="Pull request status pending" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
               <% else %>
-                <div class="pr-card-status pr-card-status-default" aria-label="No pull request status" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
+                <div class="pr-card__status pr-card__status--default" aria-label="No pull request status" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
               <% end %>
+            </div><!-- end of pr-card-state -->
 
-            </div><!-- end of pr-card-status -->
-
-          </div><!-- end of pr-card-body -->
-          <div class="pr-card-footer">
-            <div class="pr-card-target">
-              <%=  pr.node.base_ref_name %>
+            <div class="pr-card__base">
+              based on <strong><%=  pr.node.base_ref_name %></strong>
             </div>
-          </div><!-- end of pr-card-footer -->
+          </div><!-- end of pr-card header -->
+
+          <div class="pr-card__org">
+            <%= pr.node.base_repository.name_with_owner %>
+          </div>
+
+          <div class="pr-card__title">
+            <% if pr.node.title&.size > 60 %>
+              <%=  pr.node.title[0..56] %>...
+            <% else %>
+              <%=  pr.node.title %>
+            <% end %>
+          </div><!-- end of pr-card title -->
+
+          <div class="pr-card__author">
+            <span class="pr-card__author--name">opened by&nbsp;<strong><%= pr.node.author.login %></strong></span>
+            <img src="<%= pr.node.author.avatar_url %>" alt="<%= pr.node.author.login %>" class="pr-card__author--avatar">
+          </div><!-- end of pr-card title -->
+
         </div><!-- end of pr-card -->
       <% end %>
     </div>
