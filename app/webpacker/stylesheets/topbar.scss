@@ -9,7 +9,8 @@
   justify-content: flex-start;
   align-content: stretch;
   align-items: center;
-  background-image: linear-gradient(to right,#5d3c7b 30%,#aa70b5,#875390);
+  background: #5d3c7b;
+  background-image: url('../images/subtle-zebra-3d.png');
   color: #ffffff;
   overflow: hidden;
   width: 100%;
@@ -23,6 +24,11 @@
   justify-content: flex-start;
   align-content: stretch;
   align-items: center;
+  padding: .5em;
+}
+
+.topbar-logo-img {
+  width: 1.5em;
 }
 
 .topbar-navigation {
@@ -30,13 +36,15 @@
   margin-right: 1em;
 }
 
-.topbar-logo-name,
+.topbar-logo-name {
+  margin-left: .5em;
+}
+
 .topbar-logo-name a:link,
 .topbar-logo-name a:hover,
 .topbar-logo-name a:visited {
   font-size: 1.2em;
   text-transform: uppercase;
-  margin-top: .5rem;
   text-decoration: none;
   border: 0;
   color: #ffffff;
@@ -88,6 +96,8 @@
   justify-content: flex-start;
   align-content: stretch;
   align-items: center;
+  text-shadow: 2px 2px 4px #0c0c0d;
+  font-weight: 600;
 }
 
 .user-avatar {

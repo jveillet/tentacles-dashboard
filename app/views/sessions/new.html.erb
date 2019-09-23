@@ -1,15 +1,130 @@
-<section>
-  <header>
-    <p class="lead">Tentacles is an app to aggregate all your Pull Requests from different repositories into a single interface.</p>
-    <p>Start by connecting with your <a href="https://github.com">Github</a> account</p>
-  </header>
+<section name="Brand" class="section">
+  <div class="brand__logo">
+    <div class="brand__logo-text"><h1>Tentacles Dashboard</h1></div>
+    <img src="<%= asset_pack_path('media/images/logo.svg') %>" alt="Tentacles logo" class="brand__logo-icon">
+  </div>
+</section>
 
-  <article>
-    <div>
+<section name="Description" class="section">
+  <div class="section-container description">
+    <div class="description__headings">
+      <h1 class="description__headings-title">Pull requests dashboard</h1>
+      <div class="description__headings-subtitle">
+        Tentacles aggregates all pull requests for you and your Organizations into a single dashboard.
+      </div>
+    </div>
+    <div class="description__actions">
       <%= button_to '/auth/github', class: 'signin-btn' do %>
         <i class="fab fa-github"></i>
-        Sign In with Github
+        Sign In
+      <% end %>
+      <div class="description__actions-link">
+        <a href="#how-it-works">Learn how it works</a>
+      </div>
+    </div>
+  </div><!-- End of section description -->
+</section>
+
+<section name="How it works" class="section bg-white">
+  <div class="section-container">
+    <header>
+      <div class="how-it-works__header">
+        <h2 id="how-it-works">How it Works</h2>
+      </div>
+    </header>
+
+    <div class="how-it-works-boxes">
+      <div class="how-it-works-box">
+        <div class="box__icon">
+          <div class="box__icon-item">
+            <i class="fab fa-github fa-big"></i>
+          </div>
+        </div>
+        <div class="box__title">
+          <h3>Connect with Github</h3>
+        </div>
+        <div class="box__description">
+          <p>Connect with your github account. Tentacles only uses the minimum of information. We don't track you,
+          sell your information, and store any personal information.</p>
+        </div>
+      </div><!-- End of feature -->
+
+      <div class="how-it-works-box">
+        <div class="box__icon">
+          <div class="box__icon-item">
+            <i class="fas fa-book-reader fa-big"></i>
+          </div>
+        </div>
+        <div class="box__title">
+          <h3>Select your repositories</h3>
+        </div>
+        <div class="box__description">
+          <p>Pick up repositories from your personal account and your organizations and save your preferences.</p>
+        </div>
+      </div><!-- End of feature -->
+
+      <div class="how-it-works-box">
+        <div class="box__icon">
+          <div class="box__icon-item">
+            <i class="fas fa-cocktail fa-big"></i>
+          </div>
+        </div>
+        <div class="box__title">
+          <h3>Enjoy the personalized dashboard</h3>
+        </div>
+        <div class="box__description">
+          <p>The dashboard displays all the pull request for the repositories selected, and you can easily monitor which are
+          the oldest and take immediate actions on them. As a bonus, the pull requests statuses updates in near real-time.</p>
+        </div>
+      </div><!-- End of feature -->
+    </div><!-- End of features -->
+
+    <div class="how-it-works__capture">
+      <img class="" src="<%= asset_pack_path('media/images/tentacles_screenshot.png') %>" alt="Tentacles dashboard screen">
+    </div>
+  </div>
+
+</section>
+
+<section name="Pricing" class="section">
+  <div class="section-container">
+    <header>
+      <div class="pricing__header">
+        <h2 id="pricing">Pricing</h2>
+      </div>
+    </header>
+
+    <div class="pricing__description">
+      Tentacles dashboard is completely free ✨🎉💸
+    </div>
+  </div>
+</section>
+
+<section name="Open source" class="section bg-white">
+  <div class="section-container">
+    <header>
+      <div class="oss__header">
+        <h2 id="open-source">Open source all the way</h2>
+      </div>
+    </header>
+
+    <div class="oss__description">
+      Tentacles dashboard is a complete Open Source Software. You can contribute to it, fork it, install it
+      on your own server, no questions asked. It is written with the powerfull framework Ruby on Rails and Hosted
+      on GitHub.
+    </div>
+
+    <div class="oss__actions">
+      <%= button_to 'https://github.com/jveillet/tentacles-dash/fork', class: 'signin-btn' do %>
+        <i class="fas fa-code-branch"></i>
+        Fork it on GitHub
       <% end %>
     </div>
-  </article>
-</section
+  </div>
+</section>
+
+<section name="Footer" class="section bg-white">
+  <div class="footer">
+    &copy; Tentacles 2019 by <a href="https://github.com/jveillet">Jeremie Veillet</a>
+  </div>
+</section>
