@@ -78,9 +78,9 @@
 }
 
 .fa-lock {
-  color: #ffffff;
-  background-color: #0c0c0d;
+  background-color: #FAE3F5;
   border-radius: 50%;
+  color: #770087;
   padding: 0.5em 0.6em;
 }
 
@@ -106,7 +106,7 @@
   border-radius: .5em;
   color: #ffffff;
   font-size: 1em;
-  padding: 10px 20px 10px 20px;
+  padding: 15px 20px 15px 20px;
   text-decoration: none;
   cursor: pointer;
   border: 0;
@@ -117,15 +117,12 @@
   transform: scale(0.99);
 }
 
-.settings-cancel:link,
-.settings-cancel:visited {
-  text-decoration: none;
-  color: #875390;
-  font-size: 1em;
+.settings-save-btn:active {
+  transform: scale(.9);
 }
 
-.settings-cancel:hover {
-  text-decoration: underline;
+.settings-save-btn:hover {
+  background: #5d3c7b;
 }
 
 .alert-header {
