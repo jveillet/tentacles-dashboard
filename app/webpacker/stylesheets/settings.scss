@@ -112,6 +112,7 @@
   border: 0;
 }
 
+
 .settings-save-btn:active {
   background-image: linear-gradient(to bottom, #5d3c7b, #875390);
   transform: scale(0.99);
@@ -155,8 +156,14 @@ input[type = text] {
 
 .large-input {
    height: 2.5em;
-   width: 25em;
+   width: 40%;
    padding: .5em;
+   min-width: 250px;
+}
+
+.filter-input-label {
+  font-size: .8em;
+  font-weight: 600;
 }
 
 .filter-input i {
@@ -168,7 +175,7 @@ input[type = text] {
 }
 
 .filter-input .icon {
-  padding: .625em;
+  padding: 2.1em .625em;
   min-width: 2.5em;
   color: #5d3c7b;
 }
