@@ -48,7 +48,7 @@
           <div class="repository">
             <%= check_box_tag('repo[]', repo.name_with_owner, false, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
             <% end %>
-            <label for="<%= repo.name_with_owner %>" class="repository-label"%><%= repo.name_with_owner %></label>
+            <label for="<%= repo.name_with_owner %>" class="repository-label"><%= repo.name_with_owner %></label>
             <% if repo.is_private %>
               <i class="fas fa-lock"></i>
             <% end %>
