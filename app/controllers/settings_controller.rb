@@ -16,7 +16,7 @@ class SettingsController < ApplicationController
         login
         avatarUrl
         url
-        repositories(last: $last_repos) {
+        repositories(last: $last_repos, affiliations:OWNER) {
           totalCount
           nodes {
             name
