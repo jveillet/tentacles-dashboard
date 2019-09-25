@@ -9,8 +9,8 @@
   justify-content: flex-start;
   align-content: stretch;
   align-items: center;
-  background: #5d3c7b;
-  background-image: url('../images/subtle-zebra-3d.png');
+  background: #875390;
+  background-image: linear-gradient(to right, #875390 30%, #aa70b5, #875390);
   color: #ffffff;
   overflow: hidden;
   width: 100%;
@@ -28,7 +28,7 @@
 }
 
 .topbar-logo-img {
-  width: 1.5em;
+  width: 2.5em;
 }
 
 .topbar-navigation {
@@ -43,11 +43,10 @@
 .topbar-logo-name a:link,
 .topbar-logo-name a:hover,
 .topbar-logo-name a:visited {
-  font-size: 1.2em;
-  text-transform: uppercase;
   text-decoration: none;
   border: 0;
   color: #ffffff;
+  font-weight: 400;
 }
 
 .menu-card {
@@ -96,8 +95,7 @@
   justify-content: flex-start;
   align-content: stretch;
   align-items: center;
-  text-shadow: 2px 2px 4px #0c0c0d;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .user-avatar {

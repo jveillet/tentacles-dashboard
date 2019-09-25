@@ -11,17 +11,23 @@
 }
 
 .brand__logo {
-  background: #5d3c7b;
+  background: #875390;
   background-image: url('../images/subtle-zebra-3d.png');
   text-align: center;
   margin: 0 auto;
   height: 20%;
   color: #ffffff;
   padding: 1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .brand__logo-icon {
-  width: 10em;
+  width: 8em;
 }
 
 .brand__logo-text {
@@ -190,11 +196,11 @@
 @media all and (min-width: 47em) {
 
   .brand__logo-icon {
-    width: 30em;
+    width: 10em;
   }
 
   .brand__logo-text {
-    font-size: 2em;
+    font-size: 1.2em;
     text-shadow: 2px 2px 4px #0c0c0d;
   }
 
