@@ -42,7 +42,7 @@
     <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
       <div class="repositories-list">
         <% repos.each do |repo| %>
-            <% if current_user.settings['repos'].include? repo.name_with_owner %>
+            <% if user_repositories.include? repo.name_with_owner %>
           <div class="repository repository-checked">
               <%= check_box_tag('repo[]', repo.name_with_owner, true, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
             <% else %>
