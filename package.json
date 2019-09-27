@@ -24,8 +24,8 @@
     "stimulus": "^1.1.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.0",
-    "eslint": "^6.1.0",
-    "webpack-dev-server": "^3.7.2"
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "eslint": "^6.4.0",
+    "webpack-dev-server": "^3.8.1"
   }
 }
