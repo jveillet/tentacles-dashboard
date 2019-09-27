@@ -21,6 +21,8 @@ module DashboardHelper
   end
 
   def user_repositories
-    current_user.settings['repos']
+    return [] unless current_user&.settings&.key?('repos')
+
+    current_user.settings['repos'] || []
   end
 end
