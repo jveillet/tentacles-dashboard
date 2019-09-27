@@ -20,7 +20,7 @@ require 'graphql/client/http'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+Dotenv::Railtie.load if %w[development test].include? ENV['RAILS_ENV']
 
 module Tentacles
   ##
