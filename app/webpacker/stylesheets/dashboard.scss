@@ -137,3 +137,33 @@
   background-color: #d12938;
 }
 
+// Empty State
+
+.dashboard-empty {
+  text-align: center;
+}
+
+.dashboard-empty__logo {
+  width: 6em;
+}
+
+.dashboard-empty__description {
+  font-size: .9em;
+}
+
+.dashboard-empty__description a:link,
+.dashboard-empty__description a:visited,
+.dashboard-empty__description a:hover {
+  color: #1f3a93;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media all and (min-width: 47em) {
+
+  .dashboard-empty__logo {
+    width: 20em;
+  }
+
+}
+

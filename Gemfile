@@ -12,7 +12,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.0', '>= 4.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -30,13 +30,13 @@ gem 'omniauth', '~> 1.9'
 gem 'omniauth-github', '~> 1.3'
 
 # GraphQL client
-gem 'graphql-client', '~> 0.14.0'
+gem 'graphql-client', '~> 0.15.0'
 
 # Use webpack to manage app-like JavaScript modules in Rails
 gem 'webpacker', '~> 4.0', '>= 4.0.7'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '~> 1.4', '>= 1.4.5', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,15 +45,15 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.4'
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
-  gem 'rubocop-rails', '~> 2.2'
-  gem 'rubocop-rspec', '~> 1.33'
+  gem 'rubocop-rails', '~> 2.3', '>= 2.3.2'
+  gem 'rubocop-rspec', '~> 1.36'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 end

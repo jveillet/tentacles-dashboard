@@ -25,4 +25,8 @@ module DashboardHelper
 
     current_user.settings['repos'] || []
   end
+
+  def user_defined_repositories?
+    user_repositories&.size.positive?
+  end
 end

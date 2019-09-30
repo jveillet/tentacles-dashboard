@@ -41,12 +41,16 @@
 }
 
 .topbar-logo-name a:link,
-.topbar-logo-name a:hover,
 .topbar-logo-name a:visited {
   text-decoration: none;
   border: 0;
   color: #ffffff;
   font-weight: 400;
+}
+
+.topbar-logo-name a:hover,
+.topbar-logo-name a:active {
+  text-decoration: underline;
 }
 
 .menu-card {

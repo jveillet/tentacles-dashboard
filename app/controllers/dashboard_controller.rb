@@ -60,26 +60,26 @@ class DashboardController < ApplicationController
   GRAPHQL
 
   def index
-    pull_requests = []
-
-    unless user_repositories.empty?
+    if user_defined_repositories?
       results = Tentacles::Client.query(
         PullRequestsQuery,
         variables: { queryString: build_query_string(user_repositories), number_or_prs: 100, number_or_labels: 10 },
         context: client_context
       )
       pull_requests = results&.data&.search&.edges
-    end
 
-    render 'dashboard/index', locals: {
-      pull_requests: pull_requests
-    }
+      render 'dashboard/index', locals: {
+        pull_requests: pull_requests
+      }
+    else
+      render 'dashboard/empty'
+    end
   end
 
   def refresh
     pull_requests = []
 
-    unless user_repositories.empty?
+    if user_defined_repositories?
       results = Tentacles::Client.query(
         PullRequestsQuery,
         variables: { queryString: build_query_string(user_repositories), number_or_prs: 100, number_or_labels: 10 },
