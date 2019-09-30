@@ -29,40 +29,54 @@
   </section>
 
   <section name="repositories">
+
+    <% if repos&.size.positive? %>
+
     <header>
       <h3 class="setttings-title">REPOSITORIES</h3>
     </header>
 
-    <div class="filter-input">
-      <i class="fas fa-search icon"></i>
-      <label for="filter-repositories" class="filter-input-label">FILTER REPOSITORIES</label>
-      <input type="text" id="filter-repositories" class="search large-input search" placeholder="Find a repository..." data-action="keyup->settings#filterRepositories">
-    </div>
+      <div class="filter-input">
+        <i class="fas fa-search icon"></i>
+        <label for="filter-repositories" class="filter-input-label">FILTER REPOSITORIES</label>
+        <input type="text" id="filter-repositories" class="search large-input search" placeholder="Find a repository..." data-action="keyup->settings#filterRepositories">
+      </div>
 
-    <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
-      <div class="repositories-list">
-        <% repos.each do |repo| %>
-            <% if user_repositories.include? repo.name_with_owner %>
-          <div class="repository repository-checked">
-              <%= check_box_tag('repo[]', repo.name_with_owner, true, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
-            <% else %>
-          <div class="repository">
-            <%= check_box_tag('repo[]', repo.name_with_owner, false, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
-            <% end %>
-            <label for="<%= repo.name_with_owner %>" class="repository-label"><%= repo.name_with_owner %></label>
-            <% if repo.is_private %>
-              <i class="fas fa-lock"></i>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-      <div class="settings-actions space-top">
-        <%= f.button('Update settings', type: :submit, class: 'settings-save-btn') do %>
-          <i class="fas fa-circle-notch fa-spin js-loading-indicator hidden"></i>
-          Update settings
-        <% end %>
-      </div>
+      <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
+        <div class="repositories-list">
+          <% repos.each do |repo| %>
+              <% if user_repositories.include? repo.name_with_owner %>
+            <div class="repository repository-checked">
+                <%= check_box_tag('repo[]', repo.name_with_owner, true, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
+              <% else %>
+            <div class="repository">
+              <%= check_box_tag('repo[]', repo.name_with_owner, false, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
+              <% end %>
+              <label for="<%= repo.name_with_owner %>" class="repository-label"><%= repo.name_with_owner %></label>
+              <% if repo.is_private %>
+                <i class="fas fa-lock"></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="settings-actions space-top">
+          <%= f.button('Update settings', type: :submit, class: 'settings-save-btn') do %>
+            <i class="fas fa-circle-notch fa-spin js-loading-indicator hidden"></i>
+            Update settings
+          <% end %>
+        </div>
+      <% end %>
+
+    <% else %>
+
+      <div class="settings-empty">
+        <img src="<%= asset_pack_path('media/images/logo_empty_settings.png') %>" alt="Tentacles logo" class="settings-empty__logo">
+        <h2>No repositories to show 🤷‍♀️</h2>
+        <div class="settings-empty__description">Go to <a href="<%= viewer.url %>">Github</a>, and start creating repositories!</div>
+      </div><!-- end of empty state -->
+
     <% end %>
+
   </section
 </div>
 

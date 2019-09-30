@@ -180,3 +180,34 @@ input[type = text] {
   color: #5d3c7b;
 }
 
+// Empty state
+
+.settings-empty {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.settings-empty__logo {
+  width: 6em;
+}
+
+.settings-empty__description {
+  font-size: .9em;
+}
+
+.settings-empty__description a:link,
+.settings-empty__description a:visited,
+.settings-empty__description a:hover {
+  color: #1f3a93;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media all and (min-width: 47em) {
+
+  .settings-empty__logo {
+    width: 20em;
+  }
+
+}
+

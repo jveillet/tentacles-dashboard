@@ -56,6 +56,7 @@ class SettingsController < ApplicationController
       variables: { last_orgs: 10, last_repos: 100 },
       context: client_context
     )
+
     repos = map_repositories(results)
 
     render 'settings/index', locals: {
