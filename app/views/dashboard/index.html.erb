@@ -28,7 +28,7 @@
                 <% elsif node&.commit&.status&.state == 'FAILURE' %>
                   <div class="pr-card__status pr-card__status--failure" aria-label="Pull request status failure" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
                 <% elsif node&.commit&.status&.state == 'PENDING' %>
-                  <div class="pr-card-status pr-card__status--pending" aria-label="Pull request status pending" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
+                  <div class="pr-card__status pr-card__status--pending" aria-label="Pull request status pending" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
                 <% else %>
                   <div class="pr-card__status pr-card__status--default" aria-label="No pull request status" id="<%= pr.node.number %>" data-target="dashboard.commit">&nbsp;</div>
                 <% end %>
