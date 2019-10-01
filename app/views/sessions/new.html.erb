@@ -1,7 +1,13 @@
 <section name="Brand" class="section">
   <div class="brand__logo">
     <img src="<%= asset_pack_path('media/images/logo.svg') %>" alt="Tentacles logo" class="brand__logo-icon">
-    <div class="brand__logo-text"><h1>Tentacles dashboard</h1></div>
+    <div class="brand__logo-text"><h1>Tentacles</h1></div>
+    <nav class="brand__logo-menu">
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#open-source">Open source</a>
+      <%= link_to 'Log in', '/auth/github' %>
+    </nav>
   </div>
 </section>
 
