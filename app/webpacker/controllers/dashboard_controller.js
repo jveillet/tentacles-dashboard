@@ -30,7 +30,6 @@ export default class extends Controller {
     }
 
     startRefreshing() {
-        // Use 1 800 000 for 30 min
         this.refreshTimer = setInterval(() => {
             this.commitTargets.forEach((element, index) => {
                 element.classList.remove('pr-card__status--success', 'pr-card__status--failure', 'pr-card__status--pending');
@@ -38,7 +37,7 @@ export default class extends Controller {
 
             });
             this.refreshPullRequests();
-        }, 60000) // Every 1 minute
+        }, 900000) // Every 15 minutes
     }
 
     stopRefreshing() {
