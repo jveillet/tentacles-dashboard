@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 OmniAuth.config.test_mode = true
-OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+omniauth_hash = {
   'provider': 'github',
   'uid': '123545',
   'info': {
@@ -7,5 +9,9 @@ OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
     'email': 'mock@mockuser.local',
     'nickname': 'mocknickname',
     'image': ''
+  },
+  'credentials': {
+    'token': '1234567890'
   }
-})
+}
+OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(omniauth_hash)
