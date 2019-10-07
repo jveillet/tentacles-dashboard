@@ -21,8 +21,11 @@ WORKDIR ${APP_HOME}
 
 USER rails
 
+COPY --chown=rails:rails package* ./
+COPY --chown=rails:rails yarn.lock ./
 COPY --chown=rails:rails Gemfile* ./
 
+RUN yarn install
 RUN bundle install
 
 COPY --chown=rails:rails . ./
