@@ -1,50 +1,53 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:each) { @user = FactoryBot.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
-  subject { @user }
-
-  context 'Create a user' do
-
-    it 'Has a name' do
-      should respond_to(:name)
+  context 'when I create a user' do
+    it 'is valid with valid attributes' do
+      expect(user).to be_valid
     end
 
-    it 'Has an email' do
-      should respond_to(:email)
+    it 'has a name' do
+      expect(user.name).not_to be_empty
     end
 
-    it 'Has a nickname' do
-      should respond_to(:nickname)
+    it 'has an email' do
+      expect(user.email).not_to be_empty
     end
 
-    it 'Has a provider' do
-      should respond_to(:provider)
+    it 'has a nickname' do
+      expect(user.nickname).not_to be_empty
     end
 
-    it 'Has a uid' do
-      should respond_to(:uid)
+    it 'has a provider' do
+      expect(user.provider).not_to be_empty
     end
 
-    it 'Returns a valdi name' do
-      expect(@user.name).to eq('Test User')
+    it 'has a uid' do
+      expect(user.uid).not_to be_empty
     end
 
-    it 'Returns a valid email' do
-      expect(@user.email).to eq('email@test.local')
+    it 'returns a valid name' do
+      expect(user.name).to eq('Test User')
     end
 
-    it 'Returns a valid nickname' do
-      expect(@user.nickname).to eq('nickname')
+    it 'returns a valid email' do
+      expect(user.email).to eq('email@test.local')
     end
 
-    it 'Returns a valid uid' do
-      expect(@user.uid).to eq('1234')
+    it 'returns a valid nickname' do
+      expect(user.nickname).to eq('nickname')
     end
 
-    it 'Returns a valid provider' do
-      expect(@user.provider).to eq('github')
+    it 'returns a valid uid' do
+      expect(user.uid).to eq('1234')
+    end
+
+    it 'returns a valid provider' do
+      expect(user.provider).to eq('github')
     end
   end
 end

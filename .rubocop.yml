@@ -1,24 +1,29 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+
 Rails:
   Enabled: true
-  Excludes:
-    - 'db/**'
   RunRailsCops: true
 
 Metrics/LineLength:
   Max: 120
 
 Metrics/BlockLength:
+  Max: 70
   Exclude:
     - 'Rakefile'
     - 'rakelib/**/*.rake'
     - 'spec/**/*.rb'
 
-MethodLength:
+Metrics/MethodLength:
   Max: 20
 
-BlockLength:
-  Max: 70
-
-require:
-  - rubocop-rails
-  - rubocop-rspec
