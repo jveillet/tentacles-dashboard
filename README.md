@@ -80,6 +80,13 @@ $ bundle exec rails s -p 3000 -b '0.0.0.0'
 
 To access the app in your local browser, go to `http://localhost:3000`.
 
+In development mode, you also need to launch the webpack dev server:
+```
+$ ./bin/webpack-dev-server
+```
+
+The webpack dev server will run on the 3035 port.
+
 ## Tests
 
 ```

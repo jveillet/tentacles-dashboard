@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo Setup CodeClimate environment variables
+export GIT_COMMITTED_AT="$(date +%s)"
+
+echo Install CodeClimate reporter
+curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+chmod +x ./cc-test-reporter
+
+echo Start CodeClimate reporter
+./cc-test-reporter before-build
+
+echo Run tests
+bundle exec rspec
+RETURN_VALUE=$?
+
+echo Finalise CodeClimate test coverage report
+./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
+
+exit $RETURN_VALUE
