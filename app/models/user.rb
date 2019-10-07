@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+##
+# User Model.
+# This class contains application logic for a managing a user.
+#
 class User < ApplicationRecord
   ##
   # Create a user from the Omniauth information

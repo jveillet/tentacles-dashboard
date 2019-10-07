@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'graphql/client'
 require 'graphql/client/http'
 
 HTTP = GraphQL::Client::HTTP.new('https://api.github.com/graphql') do
-  def headers(context)
+  def headers(_context)
     # Optionally set any HTTP headers
     {
       'User-Agent': 'Tentacles',
@@ -12,7 +14,7 @@ HTTP = GraphQL::Client::HTTP.new('https://api.github.com/graphql') do
 end
 
 namespace :schema do
-   task :update do
-      GraphQL::Client.dump_schema(HTTP, "db/schema.json")
-   end
+  task :update do
+    GraphQL::Client.dump_schema(HTTP, 'db/schema.json')
+  end
 end

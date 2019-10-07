@@ -11,7 +11,7 @@ RSpec.describe SessionsController, type: :controller do
     it 'successfully create a user' do
       expect do
         post :create, params: { provider: :github }
-      end.to change { User.count }.by(1)
+      end.to change(User, :count).by(1)
     end
 
     it 'has a valid user' do
@@ -19,7 +19,6 @@ RSpec.describe SessionsController, type: :controller do
     end
 
     it 'successfully create a session' do
-      # expect(session[:user_id]).to be_nil
       post :create, params: { provider: :github }
       expect(session[:user_id]).not_to be_nil
     end

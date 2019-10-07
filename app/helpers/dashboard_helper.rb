@@ -27,6 +27,6 @@ module DashboardHelper
   end
 
   def user_defined_repositories?
-    user_repositories&.size.positive?
+    user_repositories.size.positive?
   end
 end
