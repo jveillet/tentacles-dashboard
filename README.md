@@ -1,4 +1,10 @@
-# Tentacles dashboard
+<div align="center">
+  <img alt="Tentacles" src="https://raw.githubusercontent.com/jveillet/tentacles-dashboard/master/app/webpacker/images/logo.png" width="256px">
+  <h1>Tentacles</h1>
+  <strong>Pull requests dashboard</strong>
+</div>
+
+[![Actions Status](https://github.com/jveillet/tentacles-dashboard/workflows/Ruby/badge.svg)](https://github.com/jveillet/tentacles-dashboard/actions)
 
 Tentacles displays all the pull requests from your repositories, and the organizations you belong to, curated into a single interface.
 
