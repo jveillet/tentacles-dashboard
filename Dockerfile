@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:2.6.5
 
 ARG APP_HOME=/home/rails/tentacles
 
@@ -20,6 +20,8 @@ RUN mkdir -p ${APP_HOME} && chown -R rails:rails ${APP_HOME}
 WORKDIR ${APP_HOME}
 
 USER rails
+
+RUN gem install bundler
 
 COPY --chown=rails:rails package* ./
 COPY --chown=rails:rails yarn.lock ./

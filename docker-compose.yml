@@ -9,7 +9,7 @@ services:
     volumes:
       - postgres_tentacles:/var/lib/postgresql/data
 
-  web:
+  web: &web
     build:
         context: .
     env_file:
@@ -23,13 +23,8 @@ services:
       - db
 
   webpacker:
-    build:
-      context: .
-    env_file:
-      - '.env'
+    <<: *web
     command: ./bin/webpack-dev-server
-    volumes:
-      - "${PWD}:/home/rails/tentacles"
     ports:
       - '3035:3035'
 
