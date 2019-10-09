@@ -1,17 +1,15 @@
 <div class="settings-container" data-controller="settings">
-  <section name="settings">
-    <header>
-      <h2>Settings</h2>
-    </header>
-  </section>
-
   <div class="alert" data-target="settings.alert">
     <div class="alert-header">
     </div>
     <div class="alert-body"></div>
   </div>
 
-  <section name="organizations">
+  <section name="organizations" class="space-top-4">
+    <header>
+      <h3 class="setttings-title">ORGANIZATIONS</h3>
+    </header>
+
     <div class="organizations-list">
       <div class="organization">
         <div class="organization-avatar"><img src="<%= viewer.avatar_url  %>" alt="<%= viewer.name %>"></div>
@@ -28,7 +26,7 @@
     </div>
   </section>
 
-  <section name="repositories">
+  <section name="repositories" class="space-top-4">
 
     <% if repos&.size.positive? %>
 

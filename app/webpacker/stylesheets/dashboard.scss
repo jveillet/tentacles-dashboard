@@ -167,3 +167,24 @@
 
 }
 
+@media (prefers-color-scheme: dark) {
+
+  .pr-card {
+    background-color: #222527;
+    color: #ffffff;
+  }
+
+  .pr-card__org {
+    color: #a8a6a6;
+  }
+
+  .pr-card__header {
+    color: #bd9cc4;
+  }
+
+  .pr-card__author--name {
+    color: #bd9cc4;
+  }
+
+}
+
