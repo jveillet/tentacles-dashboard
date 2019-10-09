@@ -66,11 +66,7 @@
 }
 
 .menu-card-link:link,
-.menu-card-link:visited {
-  color: #3d3c7b;
-  text-decoration: none;
-}
-
+.menu-card-link:visited,
 .menu-card-link:hover {
   color: #3d3c7b;
   text-decoration: none;
@@ -114,5 +110,31 @@
 .user-name:hover {
   text-decoration: none;
   color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .dropdown-open {
+    background-color: #222527;
+  }
+
+  .menu-card {
+    background-color: #222527;
+  }
+
+  .menu-card-title {
+    color: #a8a6a6;
+  }
+
+  .menu-card-link:link,
+  .menu-card-link:visited,
+  .menu-card-link:hover {
+    color: #bd9cc4;
+  }
+
+  .menu-card-icon {
+    color: #bd9cc4;
+  }
+
 }
 

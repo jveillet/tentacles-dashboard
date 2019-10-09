@@ -23,6 +23,7 @@ Tentacles displays all the pull requests from your repositories, and the organiz
 * Display the dashboard of pull requests to review, it's automatically sorted from oldest to newest, and an empahsys is
 made to those that are superior than 6 month/3 month/1 month/15 days old.
 * Pull request's CI status is updating every 15 minutes.
+* Supports the user's system preferences by displaying a Dark mode (whith compatible browsers).
 
 ## Configuration
 
