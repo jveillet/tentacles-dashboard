@@ -2,12 +2,14 @@ FROM ruby:2.6.3
 
 ARG APP_HOME=/home/rails/tentacles
 
+RUN apt-get update -qq && apt-get install -y apt-transport-https
+
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
-RUN apt-get update -qq && apt-get install -y libpq-dev nodejs yarn postgresql-client
+RUN apt-get install -y libpq-dev nodejs yarn postgresql-client
 
 # Create a non-root user
 RUN groupadd -r rails && useradd -m -r -g rails rails

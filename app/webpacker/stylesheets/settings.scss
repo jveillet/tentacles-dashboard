@@ -263,6 +263,19 @@ input[type = text] {
   .settings-actions {
     background: #222527;
   }
+  
+  .settings-empty__header {
+    color: #ffffff;   
+  }
+  
+  .settings-empty__description {
+    color: #ccc; 
+  }
+  
+  .settings-empty__description a:link,
+  .settings-empty__description a:visited,
+  .settings-empty__description a:hover {
+    color: #bd9cc4;
+  }
 
 }
-

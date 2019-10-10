@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_124007) do
     t.string "uid", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "settings"
+    t.json "settings", default: {}
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

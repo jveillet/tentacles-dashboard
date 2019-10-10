@@ -203,12 +203,16 @@
   margin-bottom: 1em;
 }
 
+.section-footer {
+  box-shadow: 0 50vh 0 50vh #ffffff;
+}
+
 .footer a:link,
 .footer a:visited,
 .footer a:hover {
   font-weight: 600;
   text-decoration: underline;
-  color: #1e0824;
+  color: #1f3a93;
 }
 
 @media all and (min-width: 47em) {
@@ -224,3 +228,28 @@
 
 }
 
+@media (prefers-color-scheme: dark) {
+
+  .description__headings-title {
+    color: #ffffff;
+  }
+  
+  .description__headings-subtitle {
+    color: #ccc;
+  }
+  
+  .description__actions-link a:link,
+  .description__actions-link a:hover,
+  .description__actions-link a:visited {
+    color: #bd9cc4;
+  }
+  
+  .pricing__header {
+    color: #ffffff;
+  }
+  
+  .pricing__description {
+    color: #ccc;
+  }
+
+}
