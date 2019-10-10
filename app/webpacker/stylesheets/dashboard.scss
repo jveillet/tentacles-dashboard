@@ -185,6 +185,19 @@
   .pr-card__author--name {
     color: #bd9cc4;
   }
+  
+  .dashboard-empty__header {
+    color: #ffffff;
+  }
+  
+  .dashboard-empty__description {
+   color: #ccc; 
+  }
+  
+  .dashboard-empty__description a:link,
+  .dashboard-empty__description a:visited,
+  .dashboard-empty__description a:hover {
+    color: #bd9cc4;
+  }
 
 }
-
