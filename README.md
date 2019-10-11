@@ -5,6 +5,7 @@
 </div>
 
 [![Actions Status](https://github.com/jveillet/tentacles-dashboard/workflows/Ruby/badge.svg)](https://github.com/jveillet/tentacles-dashboard/actions)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=jveillet/tentacles-dashboard)](https://dependabot.com)
 
 Tentacles displays all the pull requests from your repositories, and the organizations you belong to, curated into a single interface.
 
