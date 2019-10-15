@@ -46,13 +46,49 @@ export default class extends Controller {
 
     filterRepositories(event) {
         var searchElement = document.querySelector('.search');
-        var searchedItem = searchElement.value;
         var repos = document.querySelectorAll('.repo');
+        var searchedTokens = searchElement.value.split(' ');
+        var filteredNodes= [];
+        var query = '';
+        var queryFilters = [];
+
+        // Separate the search query from the search filters
+        searchedTokens.forEach(function(token) {
+            if(token.includes('is:') || token.includes('org:')) {
+                queryFilters.push(token.toLowerCase());
+            } else {
+                if(query.lenght > 0) {
+                    query += ' ';
+                }
+                query += token;
+            }
+        });
+
         repos.forEach(function(element) {
-            var item = element.value;
-            element.parentElement.style.display = 'none';
-            var result = item.match(searchedItem);
-            if (result != null) {
+            // Hide Repository
+             element.parentElement.style.display = 'none';
+            // Collect every repository that satisfies the search query (without filters)
+            if(element.value.match(query)) {
+                filteredNodes.push(element);
+            }
+        });
+
+        // Go over the collected nodes
+        filteredNodes.forEach(function(element) {
+            if (queryFilters.length > 0) {
+                // Match every filter to the data-filters attribute on the element
+                var filters = element.getAttribute('data-filters').split(' ');
+                var matchCount = 0;
+                queryFilters.forEach(function(f) {
+                    if(filters.includes(f)) {
+                        matchCount ++;
+                    }
+                });
+                // If the filters entered by the user matches the filters on the repository
+                if(matchCount == queryFilters.length) {
+                    element.parentElement.style.display = 'block';
+                }
+            } else {
                 element.parentElement.style.display = 'block';
             }
         });
@@ -64,4 +100,3 @@ export default class extends Controller {
         }
     }
 }
-

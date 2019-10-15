@@ -19,6 +19,7 @@ class SettingsController < ApplicationController
         repositories(last: $last_repos, affiliations:OWNER) {
           totalCount
           nodes {
+            owner { login }
             name
             isPrivate
             nameWithOwner
@@ -35,6 +36,7 @@ class SettingsController < ApplicationController
             repositories(last: $last_repos) {
               totalCount
               nodes {
+                owner { login }
                 name
                 isPrivate
                 nameWithOwner
