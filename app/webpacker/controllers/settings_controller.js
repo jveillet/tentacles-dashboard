@@ -48,14 +48,38 @@ export default class extends Controller {
         var searchElement = document.querySelector('.search');
         var searchedItem = searchElement.value;
         var repos = document.querySelectorAll('.repo');
+        var searchedTokens = searchedItem.split(' ');
+        var filteredNodes= [];
+
         repos.forEach(function(element) {
             var item = element.value;
             element.parentElement.style.display = 'none';
-            var result = item.match(searchedItem);
-            if (result != null) {
-                element.parentElement.style.display = 'block';
-            }
+            // var result = item.match(searchedItem);
+            // if (result != null) {
+            //     element.parentElement.style.display = 'block';
+            // }
+            var filters = element.getAttribute('data-filters').split(' ');
+            searchedTokens.forEach(function (token) {
+                filteredNodes.push(filters.filter(word => word.includes(token)));
+                // console.log(result);
+                // if(result) {
+                //     filteredNodes.push(
+                //         {
+                //             id: element.id
+                //         }
+                //     );
+                // }
+            });
+
         });
+        var flatFilters = filteredNodes.flat();
+        console.log('FILTERED!');
+        console.log(flatFilters);
+        if(flatFilters.length > 0) {
+            flatFilters.forEach(function (node) {
+                document.getElementById(node).parentElement.style.display = 'block';
+            });
+        }
     }
 
     disconnect() {
