@@ -43,12 +43,13 @@
       <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
         <div class="repositories-list">
           <% repos.each do |repo| %>
+              <% visibility = repo.is_private ? 'is:private' : 'is:public' %>
               <% if user_repositories.include? repo.name_with_owner %>
             <div class="repository repository-checked">
-                <%= check_box_tag('repo[]', repo.name_with_owner, true, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
+              <%= check_box_tag('repo[]', repo.name_with_owner, true, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository", filters: "#{visibility} org:#{repo.owner.login.downcase}" } }) %>
               <% else %>
             <div class="repository">
-              <%= check_box_tag('repo[]', repo.name_with_owner, false, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository" } }) %>
+              <%= check_box_tag('repo[]', repo.name_with_owner, false, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository", filters: "#{visibility} org:#{repo.owner.login.downcase}" } }) %>
               <% end %>
               <label for="<%= repo.name_with_owner %>" class="repository-label"><%= repo.name_with_owner %></label>
               <% if repo.is_private %>

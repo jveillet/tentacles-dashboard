@@ -19,8 +19,6 @@ import Rails from 'rails-ujs';
 
 Rails.start();
 
-console.log('Hello World from Webpacker');
-
 import { Application } from 'stimulus';
 import { definitionsFromContext } from 'stimulus/webpack-helpers';
 
