@@ -9,7 +9,13 @@
 
 Tentacles displays all the pull requests from your repositories, and the organizations you belong to, curated into a single interface.
 
-[![Tentacles](https://raw.githubusercontent.com/jveillet/tentacles-dashboard/master/app/webpacker/images/tentacles_screenshot.png)](#features)
+### Light theme
+
+[![Tentacles](https://raw.githubusercontent.com/jveillet/tentacles-dashboard/master/app/webpacker/images/tentacles_screenshot_light.png)](#features)
+
+### Dark theme
+
+[![Tentacles](https://raw.githubusercontent.com/jveillet/tentacles-dashboard/master/app/webpacker/images/tentacles_screenshot_dark.png)](#features)
 
 ## Prerequisites
 
