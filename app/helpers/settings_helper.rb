@@ -4,6 +4,8 @@
 # Collection of Settings helper methods.
 #
 module SettingsHelper
+  include ApplicationHelper
+
   def map_repositories(query_results)
     (map_user_repositories(query_results) + map_organizations_repositories(query_results)).flatten
   end

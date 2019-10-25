@@ -9,6 +9,11 @@ services:
     volumes:
       - postgres_tentacles:/var/lib/postgresql/data
 
+  cache:
+    image: redis
+    ports:
+        - "6363:6379"
+
   web:
     build:
         context: .

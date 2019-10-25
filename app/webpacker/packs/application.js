@@ -21,6 +21,7 @@ Rails.start();
 
 import { Application } from 'stimulus';
 import { definitionsFromContext } from 'stimulus/webpack-helpers';
+import '../images';
 
 const application = Application.start();
 // The path you may like to change to under `pack` that path will be `./controllers`

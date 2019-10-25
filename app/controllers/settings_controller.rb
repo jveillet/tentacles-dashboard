@@ -78,6 +78,7 @@ class SettingsController < ApplicationController
     @user = current_user
 
     if @user.update(settings: settings)
+      Rails.cache.delete(pr_cache_key)
       render json: {}, content_type: 'application/json', status: :ok
     else
       render json: {
@@ -86,3 +87,4 @@ class SettingsController < ApplicationController
     end
   end
 end
+

@@ -16,9 +16,9 @@ export default class extends Controller {
             .then((resp) => resp.json())
             .then(function(response) {
                 response.pull_requests.forEach(function(element) {
-                    var prStatus = document.getElementById(element.data.node.number);
+                    var prStatus = document.getElementById(element.number);
                     if (prStatus) {
-                        var commit = element.data.node.commits.nodes[0].commit;
+                        var commit = element.commits[element.commits.length - 1];
                         if(commit.status) {
                             var state = commit.status.state;
                             prStatus.classList.remove('pr-card__status--pending');

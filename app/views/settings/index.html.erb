@@ -37,7 +37,7 @@
       <div class="filter-input">
         <i class="fas fa-search icon"></i>
         <label for="filter-repositories" class="filter-input-label">Filter repositories</label>
-        <input type="text" id="filter-repositories" class="search large-input search" placeholder="Find a repository..." data-action="keyup->settings#filterRepositories">
+        <input type="text" id="filter-repositories" class="search large-input search" placeholder="Find a repository... filters: is:public is:private org:my_org" data-action="keyup->settings#filterRepositories">
       </div>
 
       <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
