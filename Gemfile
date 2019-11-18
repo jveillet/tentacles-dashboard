@@ -33,7 +33,7 @@ gem 'omniauth-github', '~> 1.3'
 gem 'graphql-client', '~> 0.16.0'
 
 # Use webpack to manage app-like JavaScript modules in Rails
-gem 'webpacker', '~> 4.0', '>= 4.0.7'
+gem 'webpacker', '~> 4.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.4', '>= 1.4.5', require: false
