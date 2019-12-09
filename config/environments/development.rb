@@ -70,7 +70,6 @@ Rails.application.configure do
   # config.action_controller.perform_caching = false
   config.action_controller.perform_caching = true
 
-  # config.cache_store = :null_store
   config.cache_store = :redis_cache_store, {
     url: ENV['REDIS_URL'],
     error_handler: lambda do |method:, returning:, exception:|
@@ -81,3 +80,4 @@ Rails.application.configure do
     end
   }
 end
+
