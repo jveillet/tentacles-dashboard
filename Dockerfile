@@ -9,7 +9,10 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
-RUN apt-get install -y libpq-dev nodejs yarn postgresql-client
+RUN apt-get clean \
+    && apt-get update -y \
+    && apt-get install -y \
+    libpq-dev nodejs yarn postgresql-client
 
 # Create a non-root user
 RUN groupadd -r rails && useradd -m -r -g rails rails
@@ -27,7 +30,7 @@ COPY --chown=rails:rails package* ./
 COPY --chown=rails:rails yarn.lock ./
 COPY --chown=rails:rails Gemfile* ./
 
-RUN yarn install
+RUN yarn install --check-files
 RUN bundle install
 
 COPY --chown=rails:rails . ./

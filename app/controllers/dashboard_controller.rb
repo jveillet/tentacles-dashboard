@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require './lib/grapqhql/github/queries/pull_requests'
+
 ##
 # Dashboard controller.
 #
@@ -9,85 +11,47 @@ class DashboardController < ApplicationController
   layout 'default'
   before_action :authenticate_user!
 
-  PullRequestsQuery = Tentacles::Client.parse <<-'GRAPHQL'
-    query($queryString: String!, , $number_or_prs: Int!, $number_or_labels: Int!) {
-      rateLimit {
-        cost
-        remaining
-        resetAt
-       }
-       search(query: $queryString, type: ISSUE, last: $number_or_prs) {
-         edges {
-           node {
-             ... on PullRequest {
-               author {
-                 login
-                 avatarUrl
-                 url
-               }
-               labels(last: $number_or_labels) {
-                 nodes {
-                   color
-                   name
-                   url
-                 }
-               }
-               number
-               url
-               title
-               createdAt
-               state
-               closed
-               headRefName
-               baseRefName
-               baseRepository { nameWithOwner }
-               commits(last: 1){
-                 nodes {
-                   commit {
-                     commitUrl
-                     abbreviatedOid
-                     status {
-                       state
-                     }
-                   }
-                 }
-               }
-             }
-           }
-         }
-       }
-    }
-  GRAPHQL
+  NUMBER_OF_PULL_REQUESTS = 100
+  NUMBER_OF_LABELS = 5
 
   def index
-    if user_defined_repositories?
-      results = Tentacles::Client.query(
-        PullRequestsQuery,
-        variables: { queryString: build_query_string(user_repositories), number_or_prs: 100, number_or_labels: 10 },
-        context: client_context
-      )
-      pull_requests = results&.data&.search&.edges
+    return render 'dashboard/empty' unless user_defined_repositories?
 
+    variables = {
+      queryString: build_query_string(user_repositories),
+      number_or_prs: NUMBER_OF_PULL_REQUESTS,
+      number_or_labels: NUMBER_OF_LABELS
+    }
+
+    pull_requests = ::GraphQL::Github::Queries::PullRequests.fetch(
+      cache_key: pr_cache_key,
+      variables: variables,
+      context: client_context
+    )
+
+    if pull_requests.blank?
+      render 'dashboard/empty'
+    else
       render 'dashboard/index', locals: {
         pull_requests: pull_requests
       }
-    else
-      render 'dashboard/empty'
     end
   end
 
   def refresh
-    pull_requests = []
+    variables = {
+      queryString: build_query_string(user_repositories),
+      number_or_prs: NUMBER_OF_PULL_REQUESTS,
+      number_or_labels: NUMBER_OF_LABELS
+    }
 
-    if user_defined_repositories?
-      results = Tentacles::Client.query(
-        PullRequestsQuery,
-        variables: { queryString: build_query_string(user_repositories), number_or_prs: 100, number_or_labels: 10 },
-        context: client_context
-      )
-      pull_requests = results&.data&.search&.edges
-    end
+    pull_requests = ::GraphQL::Github::Queries::PullRequests.fetch(
+      cache_key: pr_cache_key,
+      variables: variables,
+      context: client_context
+    )
 
     render json: { pull_requests: pull_requests }, content_type: 'application/json', status: :ok
   end
 end
+

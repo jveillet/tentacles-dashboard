@@ -4,6 +4,8 @@
 # Collection of Dashboard helper methods.
 #
 module DashboardHelper
+  include ApplicationHelper
+
   def build_query_string(repos)
     <<~STRING
       is:pr is:open created:>#{limit_date} #{build_repos(repos) unless repos.empty?} sort:created-asc
@@ -30,3 +32,4 @@ module DashboardHelper
     user_repositories.size.positive?
   end
 end
+

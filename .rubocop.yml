@@ -27,3 +27,6 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Max: 20
 
+Layout/TrailingEmptyLines:
+  EnforcedStyle: final_blank_line
+

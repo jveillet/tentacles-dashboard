@@ -2,9 +2,9 @@
   "name": "tentacles",
   "private": true,
   "engines": {
-    "node": ">= 12.7.0",
-    "npm": ">= 6.10.0",
-    "yarn": ">= 1.17.3"
+    "node": ">= 12.13.1",
+    "npm": ">= 6.13.2",
+    "yarn": ">= 1.21.1"
   },
   "scripts": {
     "lint": "eslint ."
