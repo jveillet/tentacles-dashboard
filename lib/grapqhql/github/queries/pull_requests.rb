@@ -54,7 +54,7 @@ module GraphQL
           }
         GRAPHQL
 
-        EXPIRES_IN = 5.minutes
+        EXPIRES_IN = (ENV['PULL_REQUEST_TLL'] || 5).to_i.minutes
 
         def self.fetch(cache_key:, variables:, context:)
           Rails.cache.fetch(cache_key, expires_in: EXPIRES_IN) do
