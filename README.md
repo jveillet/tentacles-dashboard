@@ -36,7 +36,7 @@ made to those that are superior than 6 month/3 month/1 month/15 days old.
 
 This application is storing the configuration of the environment in a `.env` file, it uses the principles behind a [twelve-factor app](https://12factor.net/).
 
-You can find an example of this file in the [.env.example](https://github.com/jveillet/tentacles-dashboard/blob/master/.env.example) file.
+You can find an example of this file in the [.env.example](https://github.com/jveillet/tentacles-dashboard/blob/master/.env.example).
 
 ### GitHub App
 
@@ -69,7 +69,7 @@ Add this personnal token named `GITHUB_ACCESS_TOKEN` into the `.env`.
 
 Then request a newer version of the schema using rails:
 ```
-$ rails schema:update
+$ bundle exec rails schema:update
 ```
 
 ## Installing
@@ -82,6 +82,7 @@ $ bundle install
 ## Database initialisation
 
 ```
+$ bundle exec rails db:create
 $ bundle exec rails db:migrate
 ```
 
@@ -98,6 +99,31 @@ In development mode, you also need to launch the webpack dev server:
 ```
 $ ./bin/webpack-dev-server
 ```
+
+The webpack dev server will run on the 3035 port.
+
+## Docker
+
+In development, you can use Docker and `docker-compose` to bootstrap the project. The `Dockerfile` contains everything
+needed to install and launched Tentacles.
+
+The `docker-compose.yml` contains all the configuration:
+* A web container (the Web App).
+* A Redis conainer (for cache).
+* A PostgreSQL container (for storing mostly the users and preferences).
+* A Webpack Dev Server (to use webpack with hot reloading).
+
+### Install
+```
+$ docker-compose build
+```
+
+### Usage
+```
+$ docker-compose up
+```
+
+To access the app in your local browser, go to `http://localhost:3000`.
 
 The webpack dev server will run on the 3035 port.
 
