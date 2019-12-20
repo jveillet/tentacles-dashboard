@@ -25,15 +25,15 @@ gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 # gem 'capistrano-rails', group: :development
 
 # Ommniauth to be able to login usin social login
-gem 'omniauth', '~> 1.9'
+gem 'omniauth', '~> 1.9', '>= 1.9.0'
 # Github social login
-gem 'omniauth-github', '~> 1.3'
+gem 'omniauth-github', '~> 1.3', '>= 1.3.0'
 
 # GraphQL client
 gem 'graphql-client', '~> 0.16.0'
 
 # Use webpack to manage app-like JavaScript modules in Rails
-gem 'webpacker', '~> 4.2'
+gem 'webpacker', '~> 4.2', '>= 4.2.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.4', '>= 1.4.5', require: false
@@ -48,7 +48,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.4'
   gem 'rspec-rails', '~> 3.9', '>= 3.9.0'
-  gem 'rubocop-rails', '~> 2.4'
+  gem 'rubocop-rails', '~> 2.4', '>= 2.4.0'
   gem 'rubocop-rspec', '~> 1.37'
   gem 'simplecov', require: false
 end
