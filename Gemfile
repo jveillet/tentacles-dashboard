@@ -48,7 +48,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.4'
   gem 'rspec-rails', '~> 3.9', '>= 3.9.0'
-  gem 'rubocop-rails', '~> 2.4', '>= 2.4.0'
+  gem 'rubocop-rails', '~> 2.4'
   gem 'rubocop-rspec', '~> 1.37'
   gem 'simplecov', require: false
 end
