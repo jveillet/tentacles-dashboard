@@ -28,4 +28,3 @@ const application = Application.start();
 // // but convention will be in `/app/javascript/controllers`
 const context = require.context('controllers', true, /\.js$/);
 application.load(definitionsFromContext(context));
-

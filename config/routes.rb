@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/auth/failure', to: 'sessions#failure'
   get '/:username/settings', to: 'settings#index', as: :settings
   post '/:username/settings/save', to: 'settings#create'
+  post '/webhooks', to: 'webhooks#index'
 end
