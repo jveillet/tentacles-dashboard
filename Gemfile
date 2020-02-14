@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 # Ommniauth to be able to login usin social login
 gem 'omniauth', '~> 1.9', '>= 1.9.0'
 # Github social login
-gem 'omniauth-github', '~> 1.3', '>= 1.3.0'
+gem 'omniauth-github', '~> 1.4'
 
 # GraphQL client
 gem 'graphql-client', '~> 0.16.0'
