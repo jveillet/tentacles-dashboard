@@ -1,45 +1,40 @@
 FROM ruby:2.6.5
 
-ARG APP_HOME=/home/rails/tentacles
-
-RUN apt-get update -qq && apt-get install -y apt-transport-https
+# Environment variables
+ENV DEBIAN_FRONTEND noninteractive
+ENV BUNDLE_JOBS=10
+ENV BUNDLER_VERSION=2.0.2
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
-RUN apt-get clean \
-    && apt-get update -y \
+RUN apt-get update -y \
     && apt-get install -y \
-    libpq-dev nodejs yarn postgresql-client
+    apt-transport-https \
+    libpq-dev \
+    nodejs \
+    yarn \
+    postgresql-client
 
-# Create a non-root user
-RUN groupadd -r rails && useradd -m -r -g rails rails
+RUN gem install bundler -v 2.0.2
 
-# Creating the path to the vendor directory because we have private gems
-# that need to be installed and Docker fails to assume the correct
-# permissions.
-RUN mkdir -p ${APP_HOME} && chown -R rails:rails ${APP_HOME}
+RUN mkdir -p /app
 
-WORKDIR ${APP_HOME}
+WORKDIR /app
 
-USER rails
+COPY Gemfile* ./
 
-COPY --chown=rails:rails package* ./
-COPY --chown=rails:rails yarn.lock ./
-COPY --chown=rails:rails Gemfile* ./
-
-RUN yarn install --check-files
+RUN bundle config
 RUN bundle install
 
-COPY --chown=rails:rails . ./
+COPY package.json yarn.lock ./
 
-# Add a script to be executed every time the container starts.
-COPY --chown=rails:rails entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+RUN yarn install --check-cache
+
+COPY . ./
+
 EXPOSE 3000
 
-# Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec ", "rails", "s", "-p", "3000" , "-b", '0.0.0.0']

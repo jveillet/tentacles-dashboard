@@ -30,6 +30,17 @@ Rails.application.configure do
   #   # config.cache_store = :null_store
   #   config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
   # end
+  config.action_controller.perform_caching = true
+
+  config.cache_store = :redis_cache_store, {
+    url: ENV['REDIS_URL'],
+    error_handler: lambda do |method:, returning:, exception:|
+      logger.debug 'Error in Redis connection'
+      logger.debug method
+      logger.debug returning
+      logger.debug exception
+    end
+  }
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
@@ -66,18 +77,5 @@ Rails.application.configure do
   logger.formatter = config.log_formatter
   config.logger    = ActiveSupport::TaggedLogging.new(logger)
   config.web_console.whiny_requests = false
-
-  # config.action_controller.perform_caching = false
-  config.action_controller.perform_caching = true
-
-  config.cache_store = :redis_cache_store, {
-    url: ENV['REDIS_URL'],
-    error_handler: lambda do |method:, returning:, exception:|
-      logger.debug 'Error in Redis connection'
-      logger.debug method
-      logger.debug returning
-      logger.debug exception
-    end
-  }
 end
 
