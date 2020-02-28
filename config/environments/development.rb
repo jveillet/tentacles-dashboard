@@ -13,6 +13,12 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+  
+  config.log_level = :debug
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  config.web_console.whiny_requests = false
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -30,6 +36,17 @@ Rails.application.configure do
   #   # config.cache_store = :null_store
   #   config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
   # end
+  config.action_controller.perform_caching = true
+
+  config.cache_store = :redis_cache_store, {
+    url: ENV['REDIS_URL'],
+    error_handler: lambda do |method:, returning:, exception:|
+      logger.debug 'Error in Redis connection'
+      logger.debug method
+      logger.debug returning
+      logger.debug exception
+    end
+  }
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
@@ -60,24 +77,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  config.log_level = :debug
-  logger           = ActiveSupport::Logger.new(STDOUT)
-  logger.formatter = config.log_formatter
-  config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  config.web_console.whiny_requests = false
-
-  # config.action_controller.perform_caching = false
-  config.action_controller.perform_caching = true
-
-  config.cache_store = :redis_cache_store, {
-    url: ENV['REDIS_URL'],
-    error_handler: lambda do |method:, returning:, exception:|
-      logger.debug 'Error in Redis connection'
-      logger.debug method
-      logger.debug returning
-      logger.debug exception
-    end
-  }
 end
-

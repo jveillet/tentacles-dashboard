@@ -19,8 +19,8 @@ Tentacles displays all the pull requests from your repositories, and the organiz
 
 ## Prerequisites
 
-* Ruby 2.6.3
-* Yarn 1.17.3
+* Ruby 2.6.5
+* Yarn 1.21.1
 * PostgreSQL 11.5
 
 ## Features
@@ -44,7 +44,7 @@ You will first need need to create a GitHub app. Instructions are described in t
 
 Copy the GitHub client Id and secrets into the `.env`.
 
-```
+```bash
 GITHUB_CLIENT_ID=your_app_client_id
 GITHUB_CLIENT_SECRET=your_app_client_secret
 ```
@@ -52,11 +52,21 @@ GITHUB_CLIENT_SECRET=your_app_client_secret
 ### Database
 
 Generate a random secret for the database password and put them in the `.env`.
-```
+
+```bash
 # Test and Dev
 TENTACLES_DEV_DATABASE_PASSWORD=random_string_secret
 # Production
 TENTACLES_DATABASE_PASSWORD=random_string_secret
+```
+
+You will also need to add the needded PostgreSQL env variables for athtentication:
+
+```bash
+PGHOST=localhost
+PGUSER=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=same_as_TENTACLES_DEV_DATABASE_PASSWORD
 ```
 
 ### GraphQL Schema
@@ -68,36 +78,39 @@ Instruction are described in the [Creating a personal access token for the comma
 Add this personnal token named `GITHUB_ACCESS_TOKEN` into the `.env`.
 
 Then request a newer version of the schema using rails:
-```
-$ bundle exec rails schema:update
+
+```bash
+bundle exec rails schema:update
 ```
 
 ## Installing
 
-```
-$ yarn install
-$ bundle install
+```bash
+yarn install
+bundle install
 ```
 
 ## Database initialisation
 
-```
-$ bundle exec rails db:create
-$ bundle exec rails db:migrate
+```bash
+bundle exec rails db:create
+bundle exec rails db:migrate
 ```
 
 ## Usage
+
 The server is available by default on the port 3000.
 
-```
-$ bundle exec rails s -p 3000 -b '0.0.0.0'
+```bash
+bundle exec rails s -p 3000 -b '0.0.0.0'
 ```
 
 To access the app in your local browser, go to `http://localhost:3000`.
 
 In development mode, you also need to launch the webpack dev server:
-```
-$ ./bin/webpack-dev-server
+
+```bash
+./bin/webpack-dev-server
 ```
 
 The webpack dev server will run on the 3035 port.
@@ -108,19 +121,22 @@ In development, you can use Docker and `docker-compose` to bootstrap the project
 needed to install and launched Tentacles.
 
 The `docker-compose.yml` contains all the configuration:
+
 * A web container (the Web App).
 * A Redis conainer (for cache).
 * A PostgreSQL container (for storing mostly the users and preferences).
 * A Webpack Dev Server (to use webpack with hot reloading).
 
 ### Install
-```
-$ docker-compose build
+
+```bash
+docker-compose build
 ```
 
 ### Usage
-```
-$ docker-compose up
+
+```bash
+docker-compose up
 ```
 
 To access the app in your local browser, go to `http://localhost:3000`.
@@ -129,8 +145,8 @@ The webpack dev server will run on the 3035 port.
 
 ## Tests
 
-```
-$ bundle exec rspec
+```bash
+bundle exec rspec
 ```
 
 ## Contributing
@@ -138,6 +154,7 @@ $ bundle exec rspec
 Thanks for thinking about contributing! Contributors are always welcome! :thumbsup:
 
 There are different ways to contibute:
+
 * Documentation
 * Fixing bugs
 * Implementing new features
@@ -172,7 +189,7 @@ Consider adding the [feature request](https://github.com/jveillet/tentacles-dash
 4. Make your changes, and commit `git commit -am "your message"`
 5. Push your changes to origin!
 
-## Licence.
+## Licence
 
 Tentacles is a free software: you can redistribute it and/or modify it under the terms of the [GNU GPL v3](LICENCE).
 
@@ -180,4 +197,4 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see
-http://www.gnu.org/licenses/.
+[gnu.org/licenses](http://www.gnu.org/licenses/).
