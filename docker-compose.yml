@@ -39,14 +39,11 @@ services:
         ports:
             - "3000:3000"
         depends_on:
-            - webpacker
             - db
             - cache
+            - webpacker
         stdin_open: true
         tty: true
 
 volumes:
     postgres_tentacles:
-        external: true
-    gem_cache:
-    node_modules:
