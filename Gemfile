@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.10'
 # gem 'capistrano-rails', group: :development
 
 # Ommniauth to be able to login usin social login
-gem 'omniauth', '~> 1.9', '>= 1.9.0'
+gem 'omniauth', '~> 1.9'
 # Github social login
 gem 'omniauth-github', '~> 1.4'
 
