@@ -24,10 +24,10 @@ gem 'jbuilder', '~> 2.10'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Ommniauth to be able to login usin social login
-gem 'omniauth', '~> 1.9'
 # Github social login
 gem 'omniauth-github', '~> 1.4'
+# CSRF mitigation for omniauth
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
 # GraphQL client
 gem 'graphql-client', '~> 0.16.0'
@@ -64,3 +64,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+

@@ -9,3 +9,4 @@ FactoryBot.define do
     uid { '1234' }
   end
 end
+
