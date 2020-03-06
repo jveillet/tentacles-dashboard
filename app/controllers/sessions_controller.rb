@@ -33,3 +33,4 @@ class SessionsController < ApplicationController
     user || User.create_with_omniauth(auth)
   end
 end
+

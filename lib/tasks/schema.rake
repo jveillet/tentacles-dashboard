@@ -14,7 +14,8 @@ HTTP = GraphQL::Client::HTTP.new('https://api.github.com/graphql') do
 end
 
 namespace :schema do
-  task :update do
+  task update: :environment do
     GraphQL::Client.dump_schema(HTTP, 'db/schema.json')
   end
 end
+

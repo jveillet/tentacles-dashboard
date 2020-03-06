@@ -13,7 +13,7 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  
+
   config.log_level = :debug
   logger           = ActiveSupport::Logger.new(STDOUT)
   logger.formatter = config.log_formatter
@@ -78,3 +78,4 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+
