@@ -6,7 +6,6 @@
       <a href="#how-it-works">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#open-source">Open source</a>
-      <%= link_to 'Log in', '/auth/github' %>
     </nav>
   </div>
 </section>
@@ -20,7 +19,7 @@
       </div>
     </div>
     <div class="description__actions">
-      <%= button_to '/auth/github', class: 'signin-btn' do %>
+      <%= button_to '/auth/github', class: 'signin-btn', method: :post do %>
         <i class="fab fa-github"></i>
         Sign In
       <% end %>
@@ -104,7 +103,8 @@
     </header>
 
     <div class="pricing__description">
-      Tentacles dashboard is completely free ✨🎉💸
+      <p>Tentacles dashboard is completely free ✨🎉💸</p>
+      <p>(No shaddy tactics to track you or use your personal information)</p>
     </div>
   </div>
 </section>
@@ -134,6 +134,6 @@
 
 <section name="Footer" class="section section-footer bg-white">
   <div class="footer">
-    &copy; Tentacles 2019 by <a href="https://github.com/jveillet">Jeremie Veillet</a>
+    &copy; Tentacles <%= Time.current.year %> by <a href="https://github.com/jveillet">Jérémie Veillet</a>
   </div>
 </section>

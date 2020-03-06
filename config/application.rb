@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails'
@@ -77,3 +79,4 @@ module Tentacles
     config.middleware.use Rack::Deflater
   end
 end
+
