@@ -10,6 +10,9 @@ chmod +x ./cc-test-reporter
 echo Start CodeClimate reporter
 ./cc-test-reporter before-build
 
+echo Robocop lints
+bundle exec rubocop
+
 echo Run tests
 bundle exec rspec
 RETURN_VALUE=$?

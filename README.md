@@ -17,6 +17,11 @@ Tentacles displays all the pull requests from your repositories, and the organiz
 
 [![Tentacles](https://raw.githubusercontent.com/jveillet/tentacles-dashboard/master/app/webpacker/images/tentacles_screenshot_dark.png)](#features)
 
+## Disclaimer
+
+This project, while quite stable, is still in a early phase. Until it reaches version 1.0, some things are expected to
+be broken, refactored, or pulled entirely.
+
 ## Prerequisites
 
 * Ruby 2.6.5
@@ -75,13 +80,16 @@ This project uses GitHub's [GraphQL API](https://developer.github.com/v4/).
 To (re)generate the GraphQL schema, you will need to create a personal access token on GitHub.
 Instruction are described in the [Creating a personal access token for the command line](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) documentation page.
 
-Add this personnal token named `GITHUB_ACCESS_TOKEN` into the `.env`.
+Add this personnal token named `GITHUB_ACCESS_TOKEN` into the `.env`. This is solely used to update the schema locally,
+no need to add this token on your production server configuration.
 
-Then request a newer version of the schema using rails:
+You can request a newer version of the schema using rails:
 
 ```bash
 bundle exec rails schema:update
 ```
+
+Then push the `db/schema.json` into the repository.
 
 ## Installing
 
@@ -151,14 +159,15 @@ bundle exec rspec
 
 ## Contributing
 
-Thanks for thinking about contributing! Contributors are always welcome! :thumbsup:
+Thank you for thinking about contributing! Contributors are always welcome! :thumbsup:
 
-There are different ways to contibute:
+There is no wrong way to contribute, and there are many ways you can participate:
 
-* Documentation
-* Fixing bugs
+* Writing documentation
+* Squashing bugs
 * Implementing new features
-* Adding tests
+* Adding or updating tests
+* Suggesting new features or things to improve
 
 ### Bugs
 
@@ -198,3 +207,4 @@ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Gen
 
 You should have received a copy of the GNU General Public License along with this program. If not, see
 [gnu.org/licenses](http://www.gnu.org/licenses/).
+

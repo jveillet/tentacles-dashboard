@@ -28,3 +28,4 @@ module SettingsHelper
     current_user.settings['repos'] || []
   end
 end
+

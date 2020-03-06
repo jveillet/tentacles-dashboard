@@ -1,32 +1,44 @@
 require:
-  - rubocop-rails
-  - rubocop-rspec
+    - rubocop-rails
+    - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.6
-  Exclude:
-    - 'db/**/*'
-    - 'node_modules/**/*'
-    - 'vendor/**/*'
-    - 'bin/**/*'
+    TargetRubyVersion: 2.6
+    Exclude:
+        - 'db/**/*'
+        - 'node_modules/**/*'
+        - 'vendor/**/*'
+        - 'bin/**/*'
 
 Rails:
-  Enabled: true
-  RunRailsCops: true
+    Enabled: true
+    RunRailsCops: true
 
-Metrics/LineLength:
-  Max: 120
+Layout/LineLength:
+    Max: 120
 
 Metrics/BlockLength:
-  Max: 70
-  Exclude:
-    - 'Rakefile'
-    - 'rakelib/**/*.rake'
-    - 'spec/**/*.rb'
+    Max: 70
+    Exclude:
+        - 'Rakefile'
+        - 'rakelib/**/*.rake'
+        - 'spec/**/*.rb'
 
 Metrics/MethodLength:
-  Max: 20
+    Max: 20
 
 Layout/TrailingEmptyLines:
-  EnforcedStyle: final_blank_line
+    EnforcedStyle: final_blank_line
+
+Rails/FilePath:
+    EnforcedStyle: arguments
+
+Style/HashTransformValues:
+    Enabled: true
+
+Style/HashTransformKeys:
+    Enabled: true
+
+Style/HashEachMethods:
+    Enabled: true
 
