@@ -256,7 +256,6 @@ DEPENDENCIES
   graphql-client (~> 0.16.0)
   jbuilder (~> 2.10)
   listen (>= 3.0.5, < 3.3)
-  omniauth (~> 1.9)
   omniauth-github (~> 1.4)
   omniauth-rails_csrf_protection (~> 0.1)
   pg (>= 0.18, < 2.0)
