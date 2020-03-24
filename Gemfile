@@ -33,7 +33,7 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1'
 gem 'graphql-client', '~> 0.16.0'
 
 # Use webpack to manage app-like JavaScript modules in Rails
-gem 'webpacker', '~> 4.2', '>= 4.2.2'
+gem 'webpacker', '~> 5.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.4', require: false
