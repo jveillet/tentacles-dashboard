@@ -18,11 +18,17 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.6.x
+        ruby-version: 2.6
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
     - name: Build and test with Rake
       env:
         PGHOST: 127.0.0.1
@@ -32,7 +38,8 @@ jobs:
         TENTACLES_DEV_DATABASE_PASSWORD: postgres
       run: |
         sudo apt-get -yqq install libpq-dev
-        gem install bundler
+        gem install bundler -v 2.0.2
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
         bundle exec rake db:test:prepare
         bin/test_with_cc_report
