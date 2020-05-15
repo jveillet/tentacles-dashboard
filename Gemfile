@@ -39,7 +39,7 @@ gem 'webpacker', '~> 5.0'
 gem 'bootsnap', '~> 1.4', require: false
 
 # Use Redis as cache store
-gem 'redis', '~> 4.1', '>= 4.1.3'
+gem 'redis', '~> 4.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
