@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.4'
   gem 'rspec-rails', '~> 4.0'
   gem 'rubocop-rails', '~> 2.5'
-  gem 'rubocop-rspec', '~> 1.38'
+  gem 'rubocop-rspec', '~> 1.39'
   gem 'simplecov', require: false
 end
 
