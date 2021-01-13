@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.10'
 # gem 'capistrano-rails', group: :development
 
 # Github social login
-gem 'omniauth-github', '~> 1.4'
+gem 'omniauth-github', '~> 2.0'
 # CSRF mitigation for omniauth
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
