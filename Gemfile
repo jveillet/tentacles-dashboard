@@ -47,7 +47,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.7'
   gem 'factory_bot_rails', '~> 6.1'
   gem 'rails-controller-testing', '~> 1.0'
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 5.0'
   gem 'rubocop-rails', '~> 2.9'
   gem 'rubocop-rspec', '~> 2.1'
   gem 'simplecov', require: false
