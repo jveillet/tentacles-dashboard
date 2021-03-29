@@ -21,7 +21,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@rails/webpacker": "^5.2.1",
-    "rails-ujs": "^5.2.4",
+    "rails-ujs": "^5.2.5",
     "stimulus": "^2.0.0"
   },
   "devDependencies": {
