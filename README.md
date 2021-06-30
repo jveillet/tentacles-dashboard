@@ -24,8 +24,9 @@ be broken, refactored, or pulled entirely.
 
 ## Prerequisites
 
-* Ruby 2.6.5
-* Yarn 1.21.1
+* Ruby 2.7
+* Node 14
+* Yarn 1.22
 * PostgreSQL 11.5
 
 ## Features
