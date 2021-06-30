@@ -17,12 +17,11 @@ module GraphQL
         ATTRS.each { |attr| attr_reader attr }
 
         def initialize(data)
-          @login = data.dig('login')
-          @avatar_url = data.dig('avatarUrl')
-          @url = data.dig('url')
+          @login = data['login']
+          @avatar_url = data['avatarUrl']
+          @url = data['url']
         end
       end
     end
   end
 end
-

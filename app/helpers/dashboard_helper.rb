@@ -32,4 +32,3 @@ module DashboardHelper
     user_repositories.size.positive?
   end
 end
-

@@ -11,7 +11,6 @@ require 'active_storage/engine'
 require 'action_controller/railtie'
 # require "action_mailer/railtie"
 require 'action_view/railtie'
-require 'action_cable/engine'
 # require 'sprockets/railtie'
 # require "rails/test_unit/railtie"
 # require 'action_mailbox/engine'
@@ -37,7 +36,7 @@ module Tentacles
       token = "Bearer #{context[:access_token]}" if context[:access_token]
       {
         'User-Agent': 'Tentacles',
-        'Authorization': token
+        Authorization: token
       }
     end
   end
@@ -79,4 +78,3 @@ module Tentacles
     config.middleware.use Rack::Deflater
   end
 end
-

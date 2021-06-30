@@ -26,25 +26,24 @@ module GraphQL
         ATTRS.each { |attr| attr_reader attr }
 
         def initialize(data)
-          @created_at = data.dig('createdAt')
-          @url = data.dig('url')
-          @number = data.dig('number')
-          @title = data.dig('title')
-          @base_ref_name = data.dig('baseRefName')
-          @author = Author.new(data.dig('author') || {})
+          @created_at = data['createdAt']
+          @url = data['url']
+          @number = data['number']
+          @title = data['title']
+          @base_ref_name = data['baseRefName']
+          @author = Author.new(data['author'] || {})
           @commits = map_commits(data.dig('commits', 'nodes') || [])
-          @base_repository = Repository.new(data.dig('baseRepository') || {})
+          @base_repository = Repository.new(data['baseRepository'] || {})
         end
 
         private
 
         def map_commits(data)
           data.map do |node|
-            Commit.new(node.dig('commit') || {})
+            Commit.new(node['commit'] || {})
           end
         end
       end
     end
   end
 end
-

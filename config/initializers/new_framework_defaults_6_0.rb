@@ -45,4 +45,3 @@ Rails.application.config.action_dispatch.return_only_media_type_on_content_type 
 # `ActiveRecord::Relation` changes by moving the volatile information (max updated at and count)
 # of the relation's cache key into the cache version to support recycling cache key.
 Rails.application.config.active_record.collection_cache_versioning = true
-

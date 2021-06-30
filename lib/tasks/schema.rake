@@ -18,4 +18,3 @@ namespace :schema do
     GraphQL::Client.dump_schema(HTTP, 'db/schema.json')
   end
 end
-
