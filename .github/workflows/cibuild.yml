@@ -42,7 +42,6 @@ jobs:
         PGHOST: 127.0.0.1
         PGUSER: postgres
         RAILS_ENV: test
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         TENTACLES_DEV_DATABASE_PASSWORD: postgres
       run: |
         bundle exec rake db:test:prepare
