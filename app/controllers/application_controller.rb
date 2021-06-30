@@ -26,4 +26,3 @@ class ApplicationController < ActionController::Base
     { access_token: session[:token] }
   end
 end
-

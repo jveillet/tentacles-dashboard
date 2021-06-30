@@ -54,4 +54,3 @@ class DashboardController < ApplicationController
     render json: { pull_requests: pull_requests }, content_type: 'application/json', status: :ok
   end
 end
-

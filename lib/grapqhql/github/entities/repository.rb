@@ -16,11 +16,10 @@ module GraphQL
         ATTRS.each { |attr| attr_reader attr }
 
         def initialize(data)
-          @name = data.dig('name')
-          @name_with_owner = data.dig('nameWithOwner')
+          @name = data['name']
+          @name_with_owner = data['nameWithOwner']
         end
       end
     end
   end
 end
-

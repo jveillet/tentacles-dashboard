@@ -15,10 +15,9 @@ module GraphQL
         ATTRS.each { |attr| attr_reader attr }
 
         def initialize(data)
-          @state = data.dig('state')
+          @state = data['state']
         end
       end
     end
   end
 end
-

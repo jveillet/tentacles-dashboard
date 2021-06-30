@@ -11,4 +11,3 @@ Rails.application.routes.draw do
   get '/:username/settings', to: 'settings#index', as: :settings
   post '/:username/settings/save', to: 'settings#create'
 end
-

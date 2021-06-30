@@ -19,12 +19,11 @@ module GraphQL
         ATTRS.each { |attr| attr_reader attr }
 
         def initialize(data)
-          @commit_url = data.dig('commitUrl')
-          @abbrevation_oid = data.dig('abbreviatedOid')
-          @status = CommitStatus.new(data.dig('status') || {})
+          @commit_url = data['commitUrl']
+          @abbrevation_oid = data['abbreviatedOid']
+          @status = CommitStatus.new(data['status'] || {})
         end
       end
     end
   end
 end
-

@@ -8,4 +8,3 @@ module ApplicationHelper
     "user/#{current_user.nickname}/pull_requests"
   end
 end
-

@@ -5,4 +5,3 @@
 #
 module SessionsHelper
 end
-

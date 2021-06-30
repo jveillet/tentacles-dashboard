@@ -3,7 +3,8 @@ require:
     - rubocop-rspec
 
 AllCops:
-    TargetRubyVersion: 2.6
+    TargetRubyVersion: 2.7
+    NewCops: enable
     Exclude:
         - 'db/**/*'
         - 'node_modules/**/*'
@@ -27,8 +28,17 @@ Metrics/BlockLength:
 Metrics/MethodLength:
     Max: 20
 
+Metrics/AbcSize:
+    Max: 20
+
+Metrics/PerceivedComplexity:
+    Max: 12
+
+Metrics/CyclomaticComplexity:
+    Max: 12
+
 Layout/TrailingEmptyLines:
-    EnforcedStyle: final_blank_line
+    EnforcedStyle: final_newline
 
 Rails/FilePath:
     EnforcedStyle: arguments
