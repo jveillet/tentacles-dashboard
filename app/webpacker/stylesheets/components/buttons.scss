@@ -1,0 +1,21 @@
+/**
+* Button component.
+*/
+.btn {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: .25rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-green {
+  background-color: var(--green-light);
+  color: #064E3B;
+}
+
+.btn-green:active {
+  transform: translateY(2px);
+}

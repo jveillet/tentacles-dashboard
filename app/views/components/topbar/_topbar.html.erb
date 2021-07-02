@@ -1,0 +1,37 @@
+<div class="topbar" data-controller="topbar">
+  <div class="topbar-logo">
+    <img src="<%= asset_pack_path('media/images/logo_topbar.svg') %>" alt="logo" class="topbar-logo-img">
+    <div class="topbar-logo-name"><%= link_to 'Tentacles', root_url, 'aria-keyshortcuts':"Control+Shift+1" %></div>
+  </div>
+
+  <div class="topbar-navigation">
+    <nav aria-label="Main Navigation">
+      <ul class="unordered-list">
+        <li class="dropdown has-submenu">
+          <div class="user">
+            <img src="<%= current_user&.image %>" alt="<%= current_user&.name %>" class="user-avatar">
+            <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name" aria-keyshortcuts="h" data-action="click->topbar#toggleMenu keyup->topbar#closeMenuWithoutDelay">
+              <%= current_user&.name %>
+              <i class="fas fa-caret-down mr-2"></i>
+            </a>
+          </div>
+          <ul class="menu-card unordered-list" data-topbar-target="menu" data-action="mouseleave->topbar#closeMenu">
+            <li><p class="menu-card__help">Press <kb class="shortcut">h</kb> anywhere to display this menu.</p></li>
+             <li class="menu-card__unselected">
+              <i class="fas fa-columns menu-card-icon"></i>
+              <%= link_to 'Dashboard', root_url, class: 'js-menu-home menu-card-link','aria-keyshortcuts':"Control+Shift+1" %>
+            </li>
+            <li class="menu-card__selected">
+              <i class="fas fa-sliders-h menu-card-icon"></i>
+              <%= link_to 'Your repositories & orgs', settings_path(username: current_user&.nickname), method: :get, class: 'js-menu-settings menu-card-link', 'aria-keyshortcuts':"Control+Shift+2" %>
+            </li>
+            <li class="menu-card__unselected">
+              <i class="fas fa-sign-out-alt menu-card-icon"></i>
+              <%= link_to 'Sign out', signout_path, class: 'js-menu-signout menu-card-link', 'aria-keyshortcuts':"Control+Shift+3" %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

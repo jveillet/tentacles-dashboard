@@ -15,48 +15,7 @@
           <% elsif number_of_days >= 10 %>
             <% pr_age = 'pr-card__age--medium' %>
           <% end %>
-          <div class="pr-card <%= pr_age %>">
-
-            <div class="pr-card__header">
-              <div class="pr-card__state">
-                <div class="pr-card__number">
-                  <a href="<%= pr.url %>">#<%=  pr.number %></a>
-                </div><!-- end of pr-card-number -->
-                <% commit = pr.commits.first %>
-                <% if commit.status.state == 'SUCCESS' %>
-                  <div class="pr-card__status pr-card__status--success" aria-label="Pull request status success" id="<%= pr.number %>" data-target="dashboard.commit">&nbsp;</div>
-                <% elsif commit.status.state == 'FAILURE' %>
-                  <div class="pr-card__status pr-card__status--failure" aria-label="Pull request status failure" id="<%= pr.number %>" data-target="dashboard.commit">&nbsp;</div>
-                <% elsif commit.status.state == 'PENDING' %>
-                  <div class="pr-card__status pr-card__status--pending" aria-label="Pull request status pending" id="<%= pr.number %>" data-target="dashboard.commit">&nbsp;</div>
-                <% else %>
-                  <div class="pr-card__status pr-card__status--default" aria-label="No pull request status" id="<%= pr.number %>" data-target="dashboard.commit">&nbsp;</div>
-                <% end %>
-              </div><!-- end of pr-card-state -->
-
-              <div class="pr-card__base">
-                based on <strong><%=  pr.base_ref_name %></strong>
-              </div>
-            </div><!-- end of pr-card header -->
-
-            <div class="pr-card__org">
-              <%= pr.base_repository.name_with_owner %>
-            </div><!-- end of pr-card organization -->
-
-            <div class="pr-card__title">
-              <% if pr.title&.size > 80 %>
-                <%=  pr.title[0..76] %>...
-              <% else %>
-                <%=  pr.title %>
-              <% end %>
-            </div><!-- end of pr-card title -->
-
-            <div class="pr-card__author">
-              <span class="pr-card__author--name">opened <%= distance_of_time_in_words_to_now(pr.created_at) %>&nbsp;ago&nbsp;by&nbsp;<strong><%= pr.author.login %></strong></span>
-              <img src="<%= pr.author.avatar_url %>" alt="<%= pr.author.login %>" class="pr-card__author--avatar">
-            </div><!-- end of pr-card author -->
-
-        </div><!-- end of pr-card -->
+          <%= render partial: '/components/cards/pull_request', locals: { pr_age: pr_age, pr: pr } %>
       <% end %>
     </div>
   </section>

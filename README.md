@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Tentacles" src="https://raw.githubusercontent.com/jveillet/tentacles-dashboard/master/app/webpacker/images/logo.png" width="256px">
+  <img alt="Tentacles" src="https://raw.githubusercontent.com/jveillet/tentacles-dashboard/latest/app/webpacker/images/logo.png" width="256px">
   <h1>Tentacles</h1>
   <strong>Pull requests dashboard</strong>
 </div>
@@ -11,13 +11,13 @@ Tentacles displays all the pull requests from your repositories, and the organiz
 
 ### Light theme
 
-[![Tentacles](https://raw.githubusercontent.com/jveillet/tentacles-dashboard/master/app/webpacker/images/tentacles_screenshot_light.png)](#features)
+[![Tentacles](https://raw.githubusercontent.com/jveillet/tentacles-dashboard/latest/app/webpacker/images/tentacles_screenshot_light.png)](#features)
 
 ### Dark theme
 
-[![Tentacles](https://raw.githubusercontent.com/jveillet/tentacles-dashboard/master/app/webpacker/images/tentacles_screenshot_dark.png)](#features)
+[![Tentacles](https://raw.githubusercontent.com/jveillet/tentacles-dashboard/latest/app/webpacker/images/tentacles_screenshot_dark.png)](#features)
 
-## Disclaimer
+## Disclaimer
 
 This project, while quite stable, is still in a early phase. Until it reaches version 1.0, some things are expected to
 be broken, refactored, or pulled entirely.
@@ -42,7 +42,7 @@ made to those that are superior than 6 month/3 month/1 month/15 days old.
 
 This application is storing the configuration of the environment in a `.env` file, it uses the principles behind a [twelve-factor app](https://12factor.net/).
 
-You can find an example of this file in the [.env.example](https://github.com/jveillet/tentacles-dashboard/blob/master/.env.example).
+You can find an example of this file in the [.env.example](https://github.com/jveillet/tentacles-dashboard/blob/latest/.env.example).
 
 ### GitHub App
 

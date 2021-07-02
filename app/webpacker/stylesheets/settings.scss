@@ -1,281 +1,140 @@
 // Place all the styles related to the settings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.settings-container {
-  margin: 2em;
+.settings {
+  margin: 1.5rem;
 }
 
-.separator {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(249, 249, 249, 0), rgba(0, 0, 0, 0.75), rgba(249, 249, 249, 0));
+.settings__section {
+  margin-top: 2rem;
 }
 
-.setttings-title {
- font-size: .8em;
- color: #443b4c;
-}
-
-.organizations-list {
+ .repositories {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: center;
-}
-
-.organization {
-  background-color: #ffffff;
-  border-radius: 5%;
-  padding: .5em;
-  margin: .5em;
-  box-shadow: 0 2px 6px 0 rgba(0, 0%, 0%, 0.2);
-}
-
-.organization-name {
-  font-weight: bold;
-  font-size: 1em;
-}
-
-.organization-avatar {
-  text-align: center;
-}
-
-.organization-avatar img {
-  width: 3em;
+ }
+ 
+ .repository {
+  background-color: var(--pr-card-background-color);
+  padding: .5rem;
+  margin: .25rem;
   height: 3em;
-  border-radius: 50%;
-}
-
-.organization-login {
-  color: #72687b;
-}
-
-.repositories-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: center;
-}
-
-.repository {
-  background-color: #ffffff;
-  border-radius: .25em;
-  padding: .5em;
-  margin: .5em;
+  border-radius: .5rem;
   box-shadow: 0 2px 6px 0 rgba(0, 0%, 0%, 0.2);
-}
-
-.repository-checked {
-  background-color: #66da96;
-}
-
-.repository-label {
-  cursor: pointer;
-}
-
-.fa-lock {
-  background-color: #FAE3F5;
-  border-radius: 50%;
-  color: #770087;
-  padding: 0.5em 0.6em;
-}
-
-.fa-check-circle {
-  color: #239d56;
-}
-
-.settings-actions {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
-  align-content: center;
-  background: hsl(0, 0%, 90%);
-  padding: 1em;
-  border-radius: .5em;
-}
-
-.settings-save-btn {
-  background: #875390;
-  background-image: linear-gradient(to bottom, #875390, #5d3c7b);
-  border-radius: .5em;
-  color: #ffffff;
-  font-size: 1em;
-  padding: 15px 20px 15px 20px;
-  text-decoration: none;
+ }
+ 
+ .repository__checked {
+  background-color: var(--green-light);
+  color: var(--repo-color);
+ }
+ 
+ .repository-label {
   cursor: pointer;
-  border: 0;
+ }
+ 
+ .fa-lock {
+  background-color: var(--aquamarine);
+  color: var(--purple);
+  border-radius: 9999px;
+  padding: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+ }
+ 
+ .settings-actions {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+   align-items: center;
+   align-content: center;
+   border-radius: .5rem;
+   width: 100%;
+ }
+ 
+ .settings-actions .btn {
+  font-size: 1em;
 }
-
-
-.settings-save-btn:active {
-  background-image: linear-gradient(to bottom, #5d3c7b, #875390);
-  transform: scale(0.99);
-}
-
-.settings-save-btn:active {
-  transform: scale(.9);
-}
-
-.settings-save-btn:hover {
-  background: #5d3c7b;
-}
-
-.alert-header {
-  font-weight: bold;
-}
-
-.alert-success {
-  background-color: #66da96;
-  border-left: 1em solid #239d56;
-  color: #104928;
-  padding: .5em;
-  width: 100%;
-}
-
-.alert-error {
-  background-color: #e2a2ae;
-  border-left: 1em solid #b00020;
-  color: #c23952;
-  padding: .5em;
-  width: 100%;
-}
-
-input[type = text] {
-  border: .0625em solid #d3d3d3;
-  background-color: #ffffff;
+ 
+ input[type = text] {
+  border: .0625em solid var(--search-border-color);
+  background-color: var(--search-background-color);
   display: block;
   font-size: 100%;
   padding-left: 2em;
-}
-
-.large-input {
-   height: 2.5em;
-   width: 40%;
-   padding: .5em;
-   min-width: 250px;
-}
-
-.filter-input-label {
-  font-size: .8em;
-  font-weight: 600;
-}
-
-.filter-input i {
-  position: absolute;
-}
-
-.filter-input {
-  margin: 0 0 2em .5em;
-}
-
-.filter-input .icon {
-  padding: 2.1em .625em;
-  min-width: 2.5em;
-  color: #5d3c7b;
-}
-
-// Empty state
-
-.settings-empty {
-  margin-top: 2em;
-  text-align: center;
-}
-
-.settings-empty__logo {
-  width: 6em;
-}
-
-.settings-empty__description {
-  font-size: .9em;
-}
-
-.settings-empty__description a:link,
-.settings-empty__description a:visited,
-.settings-empty__description a:hover {
-  color: #1f3a93;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-@media all and (min-width: 47em) {
-
-  .settings-empty__logo {
-    width: 20em;
-  }
-
-}
-
-@media (prefers-color-scheme: dark) {
-
-  .settings-header {
-    color: #ffffff;
-  }
-
-  .setttings-title {
-    color: #bd9cc4;
-  }
-
-  .organization {
-    background-color: #222527;
-  }
-
-  .organization-name {
-    color: #ffffff;
-  }
-
-  .organization-login {
-    color: #a8a6a6;
-  }
-
-  .filter-input-label {
-    color: #ccc;
-  }
-
-  input[type="text"] {
-    border: .0625em solid #ccc;
-    background-color: #222527;
-    color: #ffffff;
-  }
-
-  .filter-input .icon {
-    color: #bd9cc4;
-  }
-
-  .repository {
-    background-color: #222527;
-    color: #ffffff;
-  }
-
-  .repository-checked {
-    background-color: #66da96;
-  }
-
-  .repository-checked label {
-    color: #0c0c0d;
-  }
-
-  .settings-actions {
-    background: #222527;
-  }
-  
-  .settings-empty__header {
-    color: #ffffff;   
-  }
-  
-  .settings-empty__description {
-    color: #ccc; 
-  }
-  
-  .settings-empty__description a:link,
-  .settings-empty__description a:visited,
-  .settings-empty__description a:hover {
-    color: #bd9cc4;
-  }
-
-}
+ }
+ 
+ .search-filter__label {
+   font-weight: 500;
+   margin-left: .625em;
+   line-height: 1.75rem;
+   font-size: .875rem;
+ }
+ 
+ .search {
+  border-radius: 1em;
+  width: 50%;
+  min-width: 250px;
+  height: 2.5rem;
+  padding: .5rem;
+ }
+ 
+ .repositories__filters i {
+  position: relative;
+ }
+ 
+ .repositories__filters .icon {
+   min-width: 2.5em;
+   top: -1.9em;
+   margin-left: .625em;
+   color: var(--search-icon-color);
+ }
+ 
+ .repositories__filters-hints {
+  margin-top: -1.5em;
+  margin-left: .625em;
+  color: var(--pr-card-footer);
+  font-size: .675rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+ }
+ 
+ // Empty state
+ 
+ .settings-empty {
+   margin-top: 2em;
+   text-align: center;
+ }
+ 
+ .settings-empty__logo {
+   width: 6em;
+ }
+ 
+ .settings-empty__description {
+   font-size: .9em;
+   color: var(--repo-empty-subtext);
+ }
+ 
+ .settings-empty__description a:link,
+ .settings-empty__description a:visited,
+ .settings-empty__description a:hover {
+   color: var(--repo-empty-subtext-link-color);
+   font-weight: 600;
+   text-decoration: underline;
+ }
+ 
+ @media all and (min-width: 47em) {
+ 
+   .settings-empty__logo {
+     width: 20em;
+   }
+ 
+ }
+ 
