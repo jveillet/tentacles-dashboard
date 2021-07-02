@@ -17,47 +17,14 @@
     <meta name="theme-color" content="#fae3f5">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_pack_tag  'stylesheets', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag  'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div class="topbar" data-controller="topbar">
-
-      <div class="topbar-logo">
-        <img src="<%= asset_pack_path('media/images/logo_topbar.svg') %>" alt="logo" class="topbar-logo-img">
-        <div class="topbar-logo-name"><%= link_to 'Home', root_url %></div>
-      </div>
-
-      <div class="topbar-navigation">
-        <nav aria-label="Main Navigation">
-          <ul class="unordered-list">
-            <li class="dropdown has-submenu">
-              <div class="user">
-                <img src="<%= current_user&.image %>" alt="<%= current_user&.name %>" class="user-avatar">
-                <a href="#" aria-haspopup="true" aria-expanded="false" class="user-name" data-action="click->topbar#toggleMenu keyup->topbar#closeMenuWithoutDelay">
-                  <%= current_user&.name %>
-                  <i class="fas fa-caret-down space-right"></i>
-                </a>
-              </div>
-              <ul class="menu-card unordered-list" data-target="topbar.menu" data-action="mouseleave->topbar#closeMenu">
-                <li><span class="menu-card-title">ACCOUNT</span></li>
-                <li>
-                  <i class="fas fa-sliders-h menu-card-icon space-right"></i>
-                  <%= link_to 'Settings', settings_path(username: current_user&.nickname), method: :get, class: 'menu-card-link'%>
-                </li>
-                <li><span class="menu-card-title">SESSION</span></li>
-                <li>
-                  <i class="fas fa-sign-out-alt  menu-card-icon space-right"></i>
-                  <%= link_to 'Sign out', signout_path, class: 'menu-card-link' %>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-    </div>
+  <body data-controller="topbar" data-action="keyup->topbar#toggleMenuFromDocument" tabindex="0">
+    <%= render partial: '/components/topbar/topbar' %>
+    <div class="page">
     <%= yield %>
+    </div>
   </body>
 </html>

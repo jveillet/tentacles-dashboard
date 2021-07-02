@@ -16,11 +16,11 @@ export default class extends Controller {
             .then((resp) => resp.json())
             .then(function(response) {
                 response.pull_requests.forEach(function(element) {
-                    var prStatus = document.getElementById(element.number);
+                    let prStatus = document.getElementById(element.number);
                     if (prStatus) {
-                        var commit = element.commits[element.commits.length - 1];
+                        let commit = element.commits[element.commits.length - 1];
                         if(commit.status) {
-                            var state = commit.status.state;
+                            let state = commit.status.state;
                             prStatus.classList.remove('pr-card__status--pending');
                             prStatus.classList.add(`pr-card__status--${state.toLowerCase()}`);
                         }
@@ -46,4 +46,3 @@ export default class extends Controller {
         }
     }
 }
-

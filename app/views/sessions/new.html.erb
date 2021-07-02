@@ -1,6 +1,6 @@
-<section name="Brand" class="section">
-  <div class="brand__logo">
-    <img src="<%= asset_pack_path('media/images/logo.svg') %>" alt="Tentacles logo" class="brand__logo-icon">
+<section name="Description" class="section section-container-odd edge--bottom">
+<div class="brand__logo">
+    <img src="<%= asset_pack_path('media/images/logo_topbar.svg') %>" alt="Tentacles logo representing a head of an octopus in cartoon style" class="brand__logo-icon">
     <div class="brand__logo-text"><h1>Tentacles</h1></div>
     <nav class="brand__logo-menu">
       <a href="#how-it-works">How it works</a>
@@ -8,9 +8,6 @@
       <a href="#open-source">Open source</a>
     </nav>
   </div>
-</section>
-
-<section name="Description" class="section">
   <div class="section-container description">
     <div class="description__headings">
       <h1 class="description__headings-title">Pull requests dashboard</h1>
@@ -19,9 +16,9 @@
       </div>
     </div>
     <div class="description__actions">
-      <%= button_to '/auth/github', class: 'signin-btn', method: :post do %>
+      <%= button_to '/auth/github', class: 'btn signin-btn', method: :post do %>
         <i class="fab fa-github"></i>
-        Sign In
+        Sign In with GitHub
       <% end %>
       <div class="description__actions-link">
         <a href="#how-it-works">Learn how it works</a>
@@ -42,7 +39,7 @@
       <div class="how-it-works-box">
         <div class="box__icon">
           <div class="box__icon-item">
-            <i class="fab fa-github fa-big"></i>
+            <i class="fab fa-github fa-big" aria-hidden="true"></i>
           </div>
         </div>
         <div class="box__title">
@@ -57,7 +54,7 @@
       <div class="how-it-works-box">
         <div class="box__icon">
           <div class="box__icon-item">
-            <i class="fas fa-book-reader fa-big"></i>
+            <i class="fas fa-book-reader fa-big" aria-hidden="true"></i>
           </div>
         </div>
         <div class="box__title">
@@ -71,7 +68,7 @@
       <div class="how-it-works-box">
         <div class="box__icon">
           <div class="box__icon-item">
-            <i class="fas fa-cocktail fa-big"></i>
+            <i class="fas fa-cocktail fa-big" aria-hidden="true"></i>
           </div>
         </div>
         <div class="box__title">
@@ -94,7 +91,7 @@
 
 </section>
 
-<section name="Pricing" class="section">
+<section name="Pricing" class="section section-container-odd edge--top">
   <div class="section-container">
     <header>
       <div class="pricing__header">
@@ -124,7 +121,7 @@
     </div>
 
     <div class="oss__actions">
-      <%= button_to 'https://github.com/jveillet/tentacles-dash/fork', class: 'signin-btn' do %>
+      <%= button_to 'https://github.com/jveillet/tentacles-dash/fork', class: 'btn forkit-btn' do %>
         <i class="fas fa-code-branch"></i>
         Fork it on GitHub
       <% end %>

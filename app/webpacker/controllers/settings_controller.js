@@ -7,40 +7,40 @@ export default class extends Controller {
         event.preventDefault();
         let [data, status, xhr] = event.detail;
         document.querySelector('.js-loading-indicator').classList.toggle('hidden');
-        document.querySelector('.alert-header').innerHTML = '<i class="fas fa-check-circle space-right"></i>Marvellous!';
-        document.querySelector('.alert-body').innerHTML = 'Your settings has been saved :)';
+        document.querySelector('.alert__title').innerHTML = '<i class="fas fa-check-circle mr-2"></i>Marvellous!';
+        document.querySelector('.alert__body').innerHTML = 'Your settings has been saved 🎉️';
         this.alertTarget.classList.add('alert-success');
         this.hideAlert();
     }
 
     onSubmit() {
-        document.querySelector('.alert').classList.remove('fade-out');
+        document.querySelector('.alert').classList.remove('alert-hide');
         document.querySelector('.js-loading-indicator').classList.toggle('hidden');
     }
 
-    onError() {
+    onError(event) {
         let [data, status, xhr] = event.detail;
         document.querySelector('.js-loading-indicator').classList.toggle('hidden');
-        document.querySelector('.alert-header').innerHTML = '<i class="fas fa-exclamation-circle space-right"></i>Ouch!';
-        document.querySelector('.alert-body').innerHTML = data.message;
+        document.querySelector('.alert__title').innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>Ouch!';
+        document.querySelector('.alert__body').innerHTML = data.message;
         this.alertTarget.classList.add('alert-error');
         this.hideAlert();
     }
 
     hideAlert() {
         this.timer = setTimeout(function() {
-            document.querySelector('.alert-header').innerHTML = '';
-            document.querySelector('.alert-body').innerHTML = '';
-            document.querySelector('.alert').classList.add('fade-out');
-            document.querySelector('.alert').classList.remove('alert-success alert-error');
-        }, 10000);
+            document.querySelector('.alert').classList.add('alert-hide');
+            document.querySelector('.alert').classList.remove('alert-success', 'alert-error');
+            document.querySelector('.alert__title').innerHTML = '';
+            document.querySelector('.alert__body').innerHTML = '';
+        }, 6000);
     }
 
     toggleRepository(event) {
         if(event.target.checked) {
-            event.srcElement.parentElement.classList.add('repository-checked');
+            event.srcElement.parentElement.classList.add('repository__checked');
         } else {
-            event.srcElement.parentElement.classList.remove('repository-checked');
+            event.srcElement.parentElement.classList.remove('repository__checked');
         }
     }
 
@@ -96,8 +96,7 @@ export default class extends Controller {
 
     disconnect() {
         if (this.timer) {
-            clearTimer(this.timer);
+            clearTimeout(this.timer);
         }
     }
 }
-

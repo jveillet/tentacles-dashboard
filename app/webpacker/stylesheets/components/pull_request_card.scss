@@ -1,0 +1,134 @@
+.pr-card {
+  background-color: var(--pr-card-background-color);
+  padding: .5em;
+  margin: .5em;
+  width: 320px;
+  height: 150px;
+  position:relative;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .2);
+  border-radius: .5em;
+}
+
+.pr-card__age--normal {
+  border-top: 0;
+}
+
+.pr-card__age--critical {
+  border-top: .3em solid var(--red);
+}
+
+.pr-card__age--important {
+  border-top: .3em solid var(--red-lighter);
+}
+
+.pr-card__age--high {
+  border-top: .3em solid var(--red-dark);
+}
+
+.pr-card__age--medium {
+  border-top: .3em solid var(--red-darker);
+}
+
+.pr-card__org {
+  font-size: .8em;
+  color: var(--pr-card-subtitle);
+}
+
+.pr-card__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: .8em;
+  margin-bottom: 1em;
+}
+
+.pr-card__base {
+  color: var(--pr-card-header);
+}
+
+.pr-card__title {
+  width: 100%;
+  font-weight: 600;
+  font-size: .9em;
+}
+
+.pr-card__title,
+.pr-card__title a:link,
+.pr-card__title a:visited {
+  text-decoration: none;
+  color: var(--main-text-color);
+}
+
+.pr-card__title a:hover {
+  text-decoration: underline;
+}
+
+.pr-card__author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: .5em;
+  width: 95%;
+}
+
+.pr-card__author--avatar {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.pr-card__author--name {
+  color: var(--pr-card-footer);
+  font-size: .8em;
+  margin-right: .5rem;
+}
+
+.pr-card__state {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  background-color: var(--pr-card-state);
+  border-radius: .5em;
+  padding: .5rem;
+}
+
+.pr-card__number,
+.pr-card__number a:link,
+.pr-card__number a:visited {
+  text-decoration: none;
+  color: var(--main-text-color);
+  font-weight: 500;
+}
+
+.pr-card__number a:hover {
+  text-decoration: underline;
+}
+
+.pr-card__status {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin-left: .5em;
+}
+
+.pr-card__status--default {
+  display: none;
+}
+
+.pr-card__status--pending {
+  background-color: var(--orange);
+}
+
+.pr-card__status--success {
+  background-color: var(--green);
+}
+
+.pr-card__status--failure {
+  background-color: var(--red);
+}

@@ -1,8 +1,15 @@
+@import '../stylesheets/colors';
+@import '../stylesheets/mixins';
 @import '../stylesheets/utils';
 @import '../stylesheets/sessions';
-@import '../stylesheets/topbar';
 @import '../stylesheets/dashboard';
 @import '../stylesheets/settings';
+@import '../stylesheets/components/topbar';
+@import '../stylesheets/components/buttons';
+@import '../stylesheets/components/alert';
+@import '../stylesheets/components/pull_request_card';
+@import '../stylesheets/components/organization';
+
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
@@ -15,8 +22,8 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 body {
   margin: 0;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  background-color: #f6f8fa;
-  color: #0c0c0d;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
 }
 
 header,
@@ -29,11 +36,13 @@ figure {
   display: block;
 }
 
-@media (prefers-color-scheme: dark) {
-
-  body {
-    background-color: #111416;
-  }
-
+/**
+* Generic classes
+*/
+.title {
+  color: var(--main-title);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  margin-bottom: .5rem;
 }
-

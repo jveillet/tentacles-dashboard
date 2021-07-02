@@ -10,9 +10,11 @@
   padding-bottom: 10em;
 }
 
+.section-container-odd {
+  background-color: var(--tufts-blue);
+}
+
 .brand__logo {
-  background: #875390;
-  background-image: url('../images/subtle-zebra-3d.png');
   text-align: center;
   margin: 0 auto;
   height: 20%;
@@ -47,7 +49,7 @@
 .brand__logo-menu a:link,
 .brand__logo-menu a:visited,
 .brand__logo-menu a:hover {
-  color: #ffffff;
+  color: var(--white);
   font-weight: 600;
   text-decoration: underline;
   font-size: 1.2em;
@@ -62,7 +64,7 @@
 }
 
 .description__headings-subtitle {
-  color: #72687b;
+  color: var(--grey-dark);
   font-size: 1.5em;
 }
 
@@ -85,21 +87,13 @@
 .description__actions-link a:link,
 .description__actions-link a:hover,
 .description__actions-link a:visited {
-  color: #1f3a93;
+  color: var(--black);
   text-decoration: underline;
   font-size: 1.1em;
 }
 
 .signin-btn {
-  background: #875390;
-  background-image: linear-gradient(to bottom, #875390, #5d3c7b);
-  border-radius: .5em;
-  color: #ffffff;
-  font-size: 1em;
-  padding: 15px 20px 15px 20px;
-  text-decoration: none;
-  cursor: pointer;
-  border: 0;
+  font-size: 1.1em;
 }
 
 .signin-btn:active {
@@ -107,7 +101,20 @@
 }
 
 .signin-btn:hover {
-  background: #5d3c7b;
+  background-color: var(--grey-light);
+}
+
+.forkit-btn {
+  font-size: 1.1em;
+  background-color: var(--blue-jeans);
+}
+
+.forkit-btn:active {
+  transform: scale(.9);
+}
+
+.forkit-btn:hover {
+  background-color: var(--tufts-blue);
 }
 
 .how-it-works__header {
@@ -130,7 +137,7 @@
 }
 
 .box__icon-item {
-  background-color: #FAE3F5;
+  background-color: var(--vivid-sky-blue);
   border-radius: 50%;
   width: 5em;
   height: 5em;
@@ -139,7 +146,7 @@
 
 .fa-big {
   font-size: 3em;
-  color: #770087;
+  color: var(--french-violet);
   margin: 16px 0 0 16.5px;
 }
 
@@ -152,7 +159,7 @@
 }
 
 .box__description {
-  color: #72687b;
+  color: var(--grey-dark);
 }
 
 .how-it-works__capture {
@@ -171,10 +178,11 @@
 .pricing__header {
   text-align: center;
   font-size: 1.5em;
+  color: var(--black);
 }
 
 .pricing__description {
-  color: #1e0824;
+  color: var(--black);
   max-width: 40em;
   text-align: center;
   margin: 0 auto;
@@ -186,7 +194,7 @@
 }
 
 .oss__description {
-  color: #72687b;
+  color: var(--grey-dark);
   max-width: 40em;
   text-align: center;
   margin: 0 auto;
@@ -199,12 +207,8 @@
 
 .footer {
   text-align: center;
-  color: #1e0824;
+  color: var(--main-text-color);
   margin-bottom: 1em;
-}
-
-.section-footer {
-  box-shadow: 0 50vh 0 50vh #ffffff;
 }
 
 .footer a:link,
@@ -212,7 +216,7 @@
 .footer a:hover {
   font-weight: 600;
   text-decoration: underline;
-  color: #1f3a93;
+  color: var(--main-text-color)
 }
 
 @media all and (min-width: 47em) {
@@ -229,27 +233,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
-  .description__headings-title {
-    color: #ffffff;
+  
+  .oss__description {
+    color: var(--grey-light);
   }
   
-  .description__headings-subtitle {
-    color: #ccc;
-  }
-  
-  .description__actions-link a:link,
-  .description__actions-link a:hover,
-  .description__actions-link a:visited {
-    color: #bd9cc4;
-  }
-  
-  .pricing__header {
-    color: #ffffff;
-  }
-  
-  .pricing__description {
-    color: #ccc;
+  .box__description {
+    color: var(--grey-light);
   }
 
 }

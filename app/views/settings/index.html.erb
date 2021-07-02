@@ -1,80 +1,69 @@
-<div class="settings-container" data-controller="settings">
-  <div class="alert" data-target="settings.alert">
-    <div class="alert-header">
+<div class="settings" data-controller="settings">
+  <div class="alert" data-settings-target="alert">
+    <div class="alert__title">
     </div>
-    <div class="alert-body"></div>
+    <div class="alert__body"></div>
   </div>
 
-  <section name="organizations" class="space-top-4">
+  <section name="organizations settings__section">
     <header>
-      <h3 class="setttings-title">ORGANIZATIONS</h3>
+      <h2 class="title">Organizations</h2>
     </header>
 
-    <div class="organizations-list">
-      <div class="organization">
-        <div class="organization-avatar"><img src="<%= viewer.avatar_url  %>" alt="<%= viewer.name %>"></div>
-        <div class="organization-name"><%= viewer.name %></div>
-        <div class="organization-login">@<%= viewer.login %></div>
-      </div>
+    <div class="organizations">
+      <%= render partial: '/components/cards/organization', locals: { org: viewer } %>
       <% viewer.organizations.nodes.each do |org| %>
-        <div class="organization">
-          <div class="organization-avatar"><img src="<%= org.avatar_url %>" alt="<%= org.name %>"></div>
-          <div class="organization-name"><%= org.name %></div>
-          <div class="organization-login">@<%= org.login %></div>
-        </div>
+        <%= render partial: '/components/cards/organization', locals: { org: org } %>
       <% end %>
     </div>
   </section>
 
-  <section name="repositories" class="space-top-4">
+  <section name="repositories settings__section">
 
     <% if repos&.size.positive? %>
 
     <header>
-      <h3 class="setttings-title">REPOSITORIES</h3>
+      <h2 class="title">Repositories</h2>
     </header>
 
-      <div class="filter-input">
+      <div class="repositories__filters mt-2" role="search">
+        <label for="filter-repositories" class="search-filter__label">Search organizations and repositories</label>
+        <input type="text" id="filter-repositories" class="search" aria-keyshortcuts="Control+Shift+F" placeholder="" data-action="keyup->settings#filterRepositories">
         <i class="fas fa-search icon"></i>
-        <label for="filter-repositories" class="filter-input-label">Filter repositories</label>
-        <input type="text" id="filter-repositories" class="search large-input search" placeholder="Find a repository... filters: is:public is:private org:my_org" data-action="keyup->settings#filterRepositories">
+        <div class="repositories__filters-hints">Use filters by typing <em>is:public</em>, <em>is:private</em>, <em>org:my_org</em></div>
       </div>
 
       <%= form_with(url: "/#{current_user&.nickname}/settings/save", method: :post, data: { 'action': 'ajax:success->settings#onSuccess ajax:before->settings#onSubmit ajax:error->settings#onError' }) do |f| %>
-        <div class="repositories-list">
+        <div class="repositories mt-2">
           <% repos.each do |repo| %>
               <% visibility = repo.is_private ? 'is:private' : 'is:public' %>
               <% if user_repositories.include? repo.name_with_owner %>
-            <div class="repository repository-checked">
+            <div class="repository repository__checked">
               <%= check_box_tag('repo[]', repo.name_with_owner, true, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository", filters: "#{visibility} org:#{repo.owner.login.downcase}" } }) %>
               <% else %>
             <div class="repository">
               <%= check_box_tag('repo[]', repo.name_with_owner, false, { class: 'repo', id: repo.name_with_owner, data: { 'action': "click->settings#toggleRepository", filters: "#{visibility} org:#{repo.owner.login.downcase}" } }) %>
               <% end %>
-              <label for="<%= repo.name_with_owner %>" class="repository-label"><%= repo.name_with_owner %></label>
+              <label for="<%= repo.name_with_owner %>" class="repository-label mr-small"><%= repo.name_with_owner %></label>
               <% if repo.is_private %>
                 <i class="fas fa-lock"></i>
               <% end %>
             </div>
           <% end %>
         </div>
-        <div class="settings-actions space-top">
-          <%= f.button('Update settings', type: :submit, class: 'settings-save-btn') do %>
+        <div class="settings-actions mt-2">
+         <%= f.button('Save settings', type: :submit, class: 'btn btn-green') do %>
             <i class="fas fa-circle-notch fa-spin js-loading-indicator hidden"></i>
-            Update settings
+            Save settings
           <% end %>
         </div>
       <% end %>
-
     <% else %>
-
       <div class="settings-empty">
         <img src="<%= asset_pack_path('media/images/logo_empty_settings.png') %>" alt="Tentacles logo" class="settings-empty__logo">
         <h2 class="settings-empty__header">No repositories to show 🤷‍♀️</h2>
-        <div class="settings-empty__description">Go to <a href="<%= viewer.url %>">Github</a>, and start creating repositories!</div>
+        <div class="settings-empty__description">Go to <a href="<%= viewer.url %>" rel="noopener noreferrer" target="_blank">Github</a>, and start creating repositories!</div>
       </div><!-- end of empty state -->
-
     <% end %>
-
-  </section
+  </section>
 </div>

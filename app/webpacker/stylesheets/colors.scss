@@ -1,0 +1,74 @@
+:root {
+  --purple: #7400B8FF;
+  --french-violet: #6930C3FF;
+  --slate-blue: #5E60CEFF;
+  --tufts-blue: #5390D9FF;
+  --blue-jeans: #4EA8DEFF;
+  --vivid-sky-blue: #48BFE3FF;
+  --sky-blue-crayola: #56CFE1FF;
+  --medium-turquoise: #64DFDFFF;
+  --turquoise: #72EFDDFF;
+  --aquamarine: #80FFDBFF;
+  
+  --orange: #D76202;
+  --red: #D12938;
+  --red-light: #e24956;
+  --red-lighter: #e66b76;
+  --red-dark: #9e1b26;
+  --red-darker: #550910;
+  --green-darker: #116325;
+  --green: #2DB04E;
+  --green-lighter: #6EE7B7;
+  --green-light: #34D399;
+  
+  --white: #FFFFFF;
+  --black: rgba(0, 0, 0, 1);
+  --dark-lighter: #222527;
+  --dark: #111416;
+  --grey-light: #F3F4F6;
+  --grey: #6B7280;
+  --grey-dark: #363E46;
+  --grey-darker: #1F2937;
+  
+  --main-background-color: var(--grey-light);
+  --main-text-color: var(--black);
+  --main-title: var(--slate-blue);
+  
+  --topbar-text-color: var(--white);
+  
+  --pr-card-background-color: var(--white);
+  --pr-card-color: var(--black);
+  --pr-card-subtitle: var(--grey);
+  --pr-card-header: var(--slate-blue);
+  --pr-card-footer: var(--slate-blue);
+  --pr-card-state: var(--grey-light);
+  
+  --search-background-color: var(--white);
+  --search-border-color: var(--grey);
+  --search-icon-color: var(--black);
+  
+  --repo-color: var(--black);
+  --repo-empty-subtext: var(--black);
+  --repo-empty-subtext-link-color: var(--slate-blue);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-background-color: var(--dark);
+    --main-text-color: var(--white);
+    --main-title: var(--medium-turquoise);
+    
+    --pr-card-background-color: var(--dark-lighter);
+    --pr-card-color: var(--white);
+    --pr-card-subtitle: var(--grey-light);
+    --pr-card-header: var(--medium-turquoise);
+    --pr-card-footer: var(--medium-turquoise);
+    --pr-card-state: var(--grey-dark);
+    
+    --search-border-color: var(--white);
+    --search-icon-color: var(--medium-turquoise);
+    
+    --repo-empty-subtext: var(--grey-lighter);
+    --repo-empty-subtext-link-color: var(--tufts-blue);
+  }
+}
