@@ -198,14 +198,3 @@ Consider adding the [feature request](https://github.com/jveillet/tentacles-dash
 3. Create new branch `git checkout -b new-branch`
 4. Make your changes, and commit `git commit -am "your message"`
 5. Push your changes to origin!
-
-## Licence
-
-Tentacles is a free software: you can redistribute it and/or modify it under the terms of the [GNU GPL v3](LICENCE).
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
-warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program. If not, see
-[gnu.org/licenses](http://www.gnu.org/licenses/).
-
