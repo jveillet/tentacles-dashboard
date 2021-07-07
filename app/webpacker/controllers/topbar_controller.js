@@ -6,7 +6,7 @@ export default class extends Controller {
     startTimer(target) {
         this.closeMenuTimer = setTimeout(function() {
             target.classList.remove('dropdown-open');
-        }, 5000);
+        }, 6000);
     }
 
     stopTimer() {
@@ -30,7 +30,7 @@ export default class extends Controller {
             window.location = document.querySelector('.js-menu-home').href;
         } else if (event.shiftKey == true && event.ctrlKey == true && event.key == '2') {
             window.location = document.querySelector('.js-menu-settings').href;
-         } else if (event.shiftKey == true && event.ctrlKey == true && event.key == '3') {
+        } else if (event.shiftKey == true && event.ctrlKey == true && event.key == '3') {
             window.location = document.querySelector('.js-menu-signout').href;
         } else if (event.key === 'Escape') {
             document.querySelector('.menu-card').classList.remove('dropdown-open');
@@ -42,7 +42,7 @@ export default class extends Controller {
         }
     }
 
-    closeMenu(event) {
+    closeMenu() {
         this.startTimer(this.menuTarget);
     }
 

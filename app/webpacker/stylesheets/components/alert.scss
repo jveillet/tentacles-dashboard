@@ -21,14 +21,14 @@
 }
 
 .alert-success {
-  background-color: var(--green-lighter);
-  color: var(--green-darker);
+  background-color: var(--green-200);
+  color: var(--green-900);
   animation: slideTop 1s;
 }
 
 .alert-error {
-  background-color: var(--red-lighter);
-  color: var(--red-darker);
+  background-color: var(--red-100);
+  color: var(--red-900);
   animation: slideTop 1s;
 }
 

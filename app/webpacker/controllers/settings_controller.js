@@ -5,9 +5,8 @@ export default class extends Controller {
 
     onSuccess(event) {
         event.preventDefault();
-        let [data, status, xhr] = event.detail;
         document.querySelector('.js-loading-indicator').classList.toggle('hidden');
-        document.querySelector('.alert__title').innerHTML = '<i class="fas fa-check-circle mr-2"></i>Marvellous!';
+        document.querySelector('.alert__title').innerHTML = '<i class="fas fa-check-circle mr-05"></i>Marvellous!';
         document.querySelector('.alert__body').innerHTML = 'Your settings has been saved 🎉️';
         this.alertTarget.classList.add('alert-success');
         this.hideAlert();
@@ -19,9 +18,9 @@ export default class extends Controller {
     }
 
     onError(event) {
-        let [data, status, xhr] = event.detail;
+        let data = event.detail[0];
         document.querySelector('.js-loading-indicator').classList.toggle('hidden');
-        document.querySelector('.alert__title').innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>Ouch!';
+        document.querySelector('.alert__title').innerHTML = '<i class="fas fa-exclamation-circle mr-05"></i>Ouch!';
         document.querySelector('.alert__body').innerHTML = data.message;
         this.alertTarget.classList.add('alert-error');
         this.hideAlert();
@@ -33,7 +32,7 @@ export default class extends Controller {
             document.querySelector('.alert').classList.remove('alert-success', 'alert-error');
             document.querySelector('.alert__title').innerHTML = '';
             document.querySelector('.alert__body').innerHTML = '';
-        }, 6000);
+        }, 8000);
     }
 
     toggleRepository(event) {
@@ -44,7 +43,7 @@ export default class extends Controller {
         }
     }
 
-    filterRepositories(event) {
+    filterRepositories() {
         var searchElement = document.querySelector('.search');
         var repos = document.querySelectorAll('.repo');
         var searchedTokens = searchElement.value.split(' ');
@@ -66,7 +65,7 @@ export default class extends Controller {
 
         repos.forEach(function(element) {
             // Hide Repository
-             element.parentElement.style.display = 'none';
+            element.parentElement.style.display = 'none';
             // Collect every repository that satisfies the search query (without filters)
             if(element.value.match(query)) {
                 filteredNodes.push(element);

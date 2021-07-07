@@ -7,8 +7,8 @@
 @import '../stylesheets/components/topbar';
 @import '../stylesheets/components/buttons';
 @import '../stylesheets/components/alert';
-@import '../stylesheets/components/pull_request_card';
-@import '../stylesheets/components/organization';
+@import '../stylesheets/components/cards/pull_requests';
+@import '../stylesheets/components/cards/organizations';
 
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';

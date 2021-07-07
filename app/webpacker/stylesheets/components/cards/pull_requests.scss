@@ -14,19 +14,19 @@
 }
 
 .pr-card__age--critical {
-  border-top: .3em solid var(--red);
+  border-top: .3em solid var(--red-900);
 }
 
 .pr-card__age--important {
-  border-top: .3em solid var(--red-lighter);
+  border-top: .3em solid var(--red-600);
 }
 
 .pr-card__age--high {
-  border-top: .3em solid var(--red-dark);
+  border-top: .3em solid var(--red-400);
 }
 
 .pr-card__age--medium {
-  border-top: .3em solid var(--red-darker);
+  border-top: .3em solid var(--red-200);
 }
 
 .pr-card__org {
@@ -122,13 +122,13 @@
 }
 
 .pr-card__status--pending {
-  background-color: var(--orange);
+  background-color: var(--orange-500);
 }
 
 .pr-card__status--success {
-  background-color: var(--green);
+  background-color: var(--green-500);
 }
 
 .pr-card__status--failure {
-  background-color: var(--red);
+  background-color: var(--red-500);
 }

@@ -8,7 +8,7 @@ export default class extends Controller {
     }
 
     disconnect() {
-        this.stopRefreshing()
+        this.stopRefreshing();
     }
 
     refreshPullRequests() {
@@ -31,18 +31,18 @@ export default class extends Controller {
 
     startRefreshing() {
         this.refreshTimer = setInterval(() => {
-            this.commitTargets.forEach((element, index) => {
+            this.commitTargets.forEach((element) => {
                 element.classList.remove('pr-card__status--success', 'pr-card__status--failure', 'pr-card__status--pending');
                 element.classList.add('pr-card__status--pending');
 
             });
             this.refreshPullRequests();
-        }, 900000) // Every 15 minutes
+        }, 900000); // Every 15 minutes
     }
 
     stopRefreshing() {
         if (this.refreshTimer) {
-            clearInterval(this.refreshTimer)
+            clearInterval(this.refreshTimer);
         }
     }
 }

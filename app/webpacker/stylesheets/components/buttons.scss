@@ -12,8 +12,14 @@
 }
 
 .btn-green {
-  background-color: var(--green-light);
-  color: #064E3B;
+  background-color: var(--green-200);
+  color: var(--green-900);
+}
+
+.btn-blue {
+  background-color: var(--blue-200);
+  color: var(--blue-900);
+  font-weight: 500;
 }
 
 .btn-green:active {

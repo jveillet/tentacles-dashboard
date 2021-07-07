@@ -16,7 +16,7 @@
         <div class="pr-card__status pr-card__status--default" aria-label="No pull request status" id="<%= pr.number %>" data-dashboard-target="commit">&nbsp;</div>
       <% end %>
     </div><!-- end of pr-card-state -->
-    <div class="pr-card__base ml-1">
+    <div class="pr-card__base ml-05">
       based on <strong><%=  pr.base_ref_name %></strong>
     </div>
   </div><!-- end of pr-card header -->
@@ -25,11 +25,9 @@
   </div><!-- end of pr-card organization -->
   <div class="pr-card__title">
     <% if pr.title&.size > 80 %>
-      <%#  pr.title[0..76] %>...
-      <a href="<%= pr.url %>" rel="noopener noreferrer" target="_blank">#<%=  pr.title[0..76] %>...</a>
+      <a href="<%= pr.url %>" rel="noopener noreferrer" target="_blank"><%=  pr.title[0..76] %>...</a>
     <% else %>
-      <%#  pr.title %>
-      <a href="<%= pr.url %>" rel="noopener noreferrer" target="_blank">#<%=  pr.title %></a>
+      <a href="<%= pr.url %>" rel="noopener noreferrer" target="_blank"><%=  pr.title %></a>
     <% end %>
   </div><!-- end of pr-card title -->
   <div class="pr-card__author">

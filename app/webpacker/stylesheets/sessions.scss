@@ -11,14 +11,14 @@
 }
 
 .section-container-odd {
-  background-color: var(--tufts-blue);
+  background-color: var(--blue-600);
 }
 
 .brand__logo {
   text-align: center;
   margin: 0 auto;
   height: 20%;
-  color: #ffffff;
+  color: var(--white);
   padding: 1em;
   display: flex;
   flex-direction: row;
@@ -35,7 +35,7 @@
 .brand__logo-text {
   margin-left: 1em;
   font-size: 1em;
-  text-shadow: 2px 2px 4px #0c0c0d;
+  text-shadow: 2px 2px 4px var(--blue-900);
 }
 
 .brand__logo-menu {
@@ -64,7 +64,7 @@
 }
 
 .description__headings-subtitle {
-  color: var(--grey-dark);
+  color: var(--grey-900);
   font-size: 1.5em;
 }
 
@@ -87,13 +87,14 @@
 .description__actions-link a:link,
 .description__actions-link a:hover,
 .description__actions-link a:visited {
-  color: var(--black);
+  color: var(--grey-900);
   text-decoration: underline;
   font-size: 1.1em;
 }
 
 .signin-btn {
   font-size: 1.1em;
+  font-weight: 500;
 }
 
 .signin-btn:active {
@@ -101,20 +102,15 @@
 }
 
 .signin-btn:hover {
-  background-color: var(--grey-light);
+  background-color: var(--grey-200);
 }
 
 .forkit-btn {
   font-size: 1.1em;
-  background-color: var(--blue-jeans);
 }
 
 .forkit-btn:active {
   transform: scale(.9);
-}
-
-.forkit-btn:hover {
-  background-color: var(--tufts-blue);
 }
 
 .how-it-works__header {
@@ -137,7 +133,7 @@
 }
 
 .box__icon-item {
-  background-color: var(--vivid-sky-blue);
+  background-color: var(--complementary-100);
   border-radius: 50%;
   width: 5em;
   height: 5em;
@@ -146,7 +142,7 @@
 
 .fa-big {
   font-size: 3em;
-  color: var(--french-violet);
+  color: var(--complementary-900);
   margin: 16px 0 0 16.5px;
 }
 
@@ -159,7 +155,7 @@
 }
 
 .box__description {
-  color: var(--grey-dark);
+  color: var(--grey-800);
 }
 
 .how-it-works__capture {
@@ -178,11 +174,11 @@
 .pricing__header {
   text-align: center;
   font-size: 1.5em;
-  color: var(--black);
+  color: var(--grey-900);
 }
 
 .pricing__description {
-  color: var(--black);
+  color: var(--grey-900);
   max-width: 40em;
   text-align: center;
   margin: 0 auto;
@@ -194,7 +190,7 @@
 }
 
 .oss__description {
-  color: var(--grey-dark);
+  color: var(--grey-700);
   max-width: 40em;
   text-align: center;
   margin: 0 auto;
@@ -216,7 +212,7 @@
 .footer a:hover {
   font-weight: 600;
   text-decoration: underline;
-  color: var(--main-text-color)
+  color: var(--blue-800)
 }
 
 @media all and (min-width: 47em) {
@@ -227,7 +223,7 @@
 
   .brand__logo-text {
     font-size: 1.2em;
-    text-shadow: 2px 2px 4px #0c0c0d;
+    text-shadow: 2px 2px 4px var(--blue-900);
   }
 
 }
@@ -235,11 +231,19 @@
 @media (prefers-color-scheme: dark) {
   
   .oss__description {
-    color: var(--grey-light);
+    color: var(--grey-200);
   }
   
   .box__description {
-    color: var(--grey-light);
+    color: var(--grey-200);
+  }
+  
+  .footer a:link,
+  .footer a:visited,
+  .footer a:hover {
+    font-weight: 600;
+    text-decoration: underline;
+    color: var(--blue-500)
   }
 
 }

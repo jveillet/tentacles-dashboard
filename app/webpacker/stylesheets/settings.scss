@@ -9,16 +9,16 @@
   margin-top: 2rem;
 }
 
- .repositories {
+.repositories {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: center;
- }
+}
  
- .repository {
+.repository {
   background-color: var(--pr-card-background-color);
   padding: .5rem;
   margin: .25rem;
@@ -28,27 +28,27 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
- }
+}
  
- .repository__checked {
-  background-color: var(--green-light);
+.repository__checked {
+  background-color: var(--complementary-300);
   color: var(--repo-color);
- }
+}
  
- .repository-label {
+.repository-label {
   cursor: pointer;
- }
+}
  
- .fa-lock {
-  background-color: var(--aquamarine);
-  color: var(--purple);
+.fa-lock {
+  background-color: var(--blue-100);
+  color: var(--blue-900);
   border-radius: 9999px;
   padding: 0.5rem;
   height: 2rem;
   width: 2rem;
- }
+}
  
- .settings-actions {
+.settings-actions {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -57,84 +57,88 @@
    align-content: center;
    border-radius: .5rem;
    width: 100%;
- }
+}
  
- .settings-actions .btn {
+.settings-actions .btn {
   font-size: 1em;
 }
  
- input[type = text] {
+input[type = text] {
   border: .0625em solid var(--search-border-color);
   background-color: var(--search-background-color);
   display: block;
   font-size: 100%;
   padding-left: 2em;
- }
+}
  
- .search-filter__label {
+.search-filter__label {
    font-weight: 500;
    margin-left: .625em;
    line-height: 1.75rem;
    font-size: .875rem;
- }
+}
  
- .search {
+.search {
   border-radius: 1em;
   width: 50%;
   min-width: 250px;
   height: 2.5rem;
   padding: .5rem;
- }
+}
  
- .repositories__filters i {
+.repositories__filters i {
   position: relative;
- }
+}
  
- .repositories__filters .icon {
-   min-width: 2.5em;
-   top: -1.9em;
-   margin-left: .625em;
-   color: var(--search-icon-color);
- }
+.repositories__filters .icon {
+  min-width: 2.5em;
+  top: -1.9em;
+  margin-left: .625em;
+  color: var(--search-icon-color);
+}
  
- .repositories__filters-hints {
+.repositories__filters-hints {
   margin-top: -1.5em;
   margin-left: .625em;
-  color: var(--pr-card-footer);
+  color: var(--search-hints-color);
   font-size: .675rem;
   line-height: 1.25rem;
   font-weight: 500;
- }
+}
  
- // Empty state
+.settings-save {
+  font-size: 1.1em;
+}
  
- .settings-empty {
-   margin-top: 2em;
-   text-align: center;
- }
+// Empty state
  
- .settings-empty__logo {
-   width: 6em;
- }
+.settings-empty {
+  margin-top: 2em;
+  text-align: center;
+}
  
- .settings-empty__description {
-   font-size: .9em;
-   color: var(--repo-empty-subtext);
- }
+.settings-empty__logo {
+  width: 6em;
+}
  
- .settings-empty__description a:link,
- .settings-empty__description a:visited,
- .settings-empty__description a:hover {
-   color: var(--repo-empty-subtext-link-color);
-   font-weight: 600;
-   text-decoration: underline;
- }
+.settings-empty__description {
+  font-size: .9em;
+  color: var(--repo-empty-subtext);
+}
  
- @media all and (min-width: 47em) {
+.settings-empty__description a:link,
+.settings-empty__description a:visited,
+.settings-empty__description a:hover {
+  color: var(--repo-empty-subtext-link-color);
+  font-weight: 600;
+  text-decoration: underline;
+}
  
-   .settings-empty__logo {
-     width: 20em;
-   }
- 
- }
+@media all and (min-width: 47em) {
+
+  .settings-empty__logo {
+    width: 20em;
+  }
+
+}
  
