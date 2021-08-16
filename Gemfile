@@ -54,7 +54,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.1'
   gem 'rails-controller-testing', '~> 1.0'
   # rspec-rails is a testing framework for Rails 5+.
-  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'rspec-rails', '~> 5.0'
   gem 'rubocop-rails', '~> 2.11'
   gem 'rubocop-rspec', '~> 2.1'
   gem 'simplecov', require: false
