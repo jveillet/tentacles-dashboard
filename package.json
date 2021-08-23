@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
-    "@rails/webpacker": "^5.2.1",
+    "@rails/webpacker": "^5.4.2",
     "rails-ujs": "^5.2.4",
     "stimulus": "^2.0.0",
     "turbolinks": "^5.2.0"
