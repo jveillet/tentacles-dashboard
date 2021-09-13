@@ -30,7 +30,7 @@ gem 'omniauth-github', '~> 2.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # GraphQL client
-gem 'graphql-client', '~> 0.16.0'
+gem 'graphql-client', '~> 0.17.0'
 
 # Use webpack to manage app-like JavaScript modules in Rails
 gem 'webpacker', '~> 5.2'
