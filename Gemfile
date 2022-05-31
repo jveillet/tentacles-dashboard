@@ -36,7 +36,7 @@ gem 'graphql-client', '~> 0.16.0'
 gem 'webpacker', '~> 5.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '~> 1.5', require: false
+gem 'bootsnap', '~> 1.12', require: false
 
 # Protect against typical web attacks, works with all Rack apps, including Rails.
 gem 'rack-protection', '~> 2.1'
