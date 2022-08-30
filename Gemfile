@@ -42,7 +42,7 @@ gem 'bootsnap', '~> 1.5', require: false
 gem 'rack-protection', '~> 2.1'
 
 # Use Redis as cache store
-gem 'redis', '~> 4.2'
+gem 'redis', '~> 5.0'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5.2', '>= 5.2.1'
