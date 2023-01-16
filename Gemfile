@@ -56,7 +56,7 @@ group :development, :test do
   # rspec-rails is a testing framework for Rails 5+.
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rubocop-rails', '~> 2.11'
-  gem 'rubocop-rspec', '~> 2.1'
+  gem 'rubocop-rspec', '~> 2.17'
   gem 'simplecov', require: false
 end
 
