@@ -1,3 +1,5 @@
+⚠️ This project is now Archived, it will no longer receive updates.
+
 <div align="center">
   <img alt="Tentacles" src="https://raw.githubusercontent.com/jveillet/tentacles-dashboard/latest/app/webpacker/images/logo.png" width="256px">
   <h1>Tentacles</h1>
